@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Applied literacy and applied math — skill priority maps</title>
+<title>Workforce-readiness sections — skill priority maps</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
@@ -12,168 +12,182 @@
 :root{
   --navy:#1B2264; --action:#324DC7; --page:#F5F7FC;
   --n30:#E6EAF2; --n40:#D8DCE3; --n80:#6D6F73; --n90:#46474A; --ink:#1E1E1E;
-  --b10:#E6F5FF; --b30:#A3DCFF; --b50:#2CB7FC; --b70:#236CE1; --b90:#28369A;
+  --b10:#E6F5FF; --b30:#A3DCFF; --b50:#2CB7FC; --b70:#236CE1;
   --warn:#B01C84;
 }
 *{box-sizing:border-box}
-body{
-  margin:0; background:var(--page); color:var(--ink);
-  font:400 15px/1.55 Roboto,system-ui,sans-serif;
-}
-.shell{max-width:1500px;margin:0 auto;padding:40px 28px 80px}
-h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;font-weight:600;margin:0}
-h1{font-size:30px;line-height:1.2;color:var(--navy);max-width:22ch}
-h2{font-size:21px;color:var(--navy);margin-bottom:6px}
-.lede{max-width:70ch;margin:14px 0 0;color:var(--n90)}
-.masthead{border-bottom:3px solid var(--navy);padding-bottom:22px;margin-bottom:26px}
+body{margin:0;background:var(--page);color:var(--ink);font:400 15px/1.55 Roboto,system-ui,sans-serif}
+.shell{max-width:1560px;margin:0 auto;padding:40px 28px 80px}
+h1,h2{font-family:"Source Serif 4",Georgia,serif;font-weight:600;margin:0;color:var(--navy)}
+h1{font-size:30px;line-height:1.2;max-width:24ch}
+.lede{max-width:72ch;margin:14px 0 0;color:var(--n90)}
+.masthead{border-bottom:3px solid var(--navy);padding-bottom:22px;margin-bottom:24px}
 .meta{margin-top:14px;font-size:13px;color:var(--n80)}
 
-.tabs{display:flex;gap:2px;margin-bottom:22px}
-.tab{
-  font:500 14px Roboto,sans-serif;padding:9px 20px;border:1px solid var(--n40);
-  background:#fff;color:var(--navy);cursor:pointer;
+.panel{background:#fff;border:1px solid var(--n30);border-left:4px solid var(--navy);
+  padding:18px 22px;margin-bottom:24px;max-width:92ch}
+.panel p{margin:0 0 10px}.panel p:last-child{margin:0}
+.panel.alert{border-left-color:var(--warn)}
+
+.modebar{display:flex;gap:0;margin-bottom:6px}
+.modebar button{
+  font:500 14px/1.3 Roboto,sans-serif;padding:13px 22px;border:1px solid var(--n40);
+  background:#fff;color:var(--n90);cursor:pointer;margin-left:-1px;text-align:left;
 }
+.modebar button b{display:block;color:var(--navy);font-weight:700}
+.modebar button small{display:block;font-size:11.5px;color:var(--n80);margin-top:2px}
+.modebar button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy)}
+.modebar button[aria-pressed="true"] b,.modebar button[aria-pressed="true"] small{color:#fff}
+.modebar button:focus-visible{outline:3px solid var(--b50);outline-offset:2px;z-index:2}
+.modenote{font-size:13px;color:var(--n90);margin:0 0 20px;max-width:80ch}
+
+.tabs{display:flex;gap:2px;margin-bottom:20px}
+.tab{font:500 14px Roboto,sans-serif;padding:9px 20px;border:1px solid var(--n40);
+  background:#fff;color:var(--navy);cursor:pointer}
 .tab[aria-selected="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
 .tab:focus-visible{outline:3px solid var(--b50);outline-offset:2px}
 
-.controls{
-  display:flex;flex-wrap:wrap;gap:22px;align-items:flex-end;
-  padding:16px 18px;background:#fff;border:1px solid var(--n30);margin-bottom:22px;
-}
+.controls{display:flex;flex-wrap:wrap;gap:22px;align-items:flex-end;
+  padding:16px 18px;background:#fff;border:1px solid var(--n30);margin-bottom:20px}
 .ctl{display:flex;flex-direction:column;gap:5px}
-.ctl span{font-size:12px;color:var(--n80);letter-spacing:.01em}
+.ctl span{font-size:12px;color:var(--n80)}
+select{font:400 13px Roboto,sans-serif;padding:6px 9px;border:1px solid var(--n40);background:#fff;color:var(--n90)}
 .seg{display:flex}
-.seg button{
-  font:400 13px Roboto,sans-serif;padding:6px 13px;border:1px solid var(--n40);
-  background:#fff;cursor:pointer;margin-left:-1px;color:var(--n90);
-}
-.seg button[aria-pressed="true"]{background:var(--b10);border-color:var(--b70);color:var(--navy);font-weight:500;position:relative;z-index:1}
-.seg button:focus-visible{outline:3px solid var(--b50);outline-offset:1px;z-index:2}
-input[type=range]{width:170px;accent-color:var(--action)}
+.seg button{font:400 13px Roboto,sans-serif;padding:6px 13px;border:1px solid var(--n40);
+  background:#fff;cursor:pointer;margin-left:-1px;color:var(--n90)}
+.seg button[aria-pressed="true"]{background:var(--b10);border-color:var(--b70);color:var(--navy);font-weight:500;z-index:1}
+.seg button:focus-visible,select:focus-visible{outline:3px solid var(--b50);outline-offset:1px;z-index:2}
+input[type=range]{width:160px;accent-color:var(--action)}
+label.chk{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--n90)}
 .count{font-size:13px;color:var(--n80);margin-left:auto}
 
 table{border-collapse:collapse;width:100%;background:#fff;font-size:13.5px}
-thead th{
-  background:var(--navy);color:#fff;font-weight:500;text-align:left;
-  padding:11px 10px;position:sticky;top:0;z-index:3;font-size:12.5px;
-}
-thead th.num{text-align:center;width:62px}
-tbody td{border-bottom:1px solid var(--n30);padding:9px 10px;vertical-align:top}
+thead th{background:var(--navy);color:#fff;font-weight:500;text-align:left;
+  padding:10px 9px;position:sticky;top:0;z-index:3;font-size:12.5px}
+thead th.num{text-align:center;width:54px}
+tbody td{border-bottom:1px solid var(--n30);padding:9px 9px;vertical-align:top}
 tbody tr:hover td{background:var(--b10)}
-td.id{font-weight:500;color:var(--navy);white-space:nowrap;width:54px}
-td.nm{max-width:420px}
-td.sub{font-size:12px;color:var(--n80);max-width:200px}
-td.cell{text-align:center;font-variant-numeric:tabular-nums;font-weight:500;width:62px}
-.pri{position:relative;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+tr.domhead td{background:var(--n30);font-weight:700;color:var(--navy);
+  font-size:12.5px;padding:7px 9px;border-bottom:2px solid var(--navy)}
+tr.domhead:hover td{background:var(--n30)}
+td.id{font-weight:500;color:var(--navy);white-space:nowrap;width:52px}
+td.nm{max-width:400px}
+td.sub{font-size:12px;color:var(--n80);max-width:180px}
+td.cell{text-align:center;font-variant-numeric:tabular-nums;font-weight:500;width:54px}
+.pri{position:relative;text-align:center;font-weight:700;font-variant-numeric:tabular-nums;width:74px}
 .pri .v{position:relative;z-index:1}
-.hatch::after{
-  content:"";position:absolute;inset:0;z-index:0;
-  background:repeating-linear-gradient(135deg,transparent 0 4px,rgba(176,28,132,.55) 4px 6px);
-}
+.hatch::after{content:"";position:absolute;inset:0;z-index:0;
+  background:repeating-linear-gradient(135deg,transparent 0 4px,rgba(176,28,132,.55) 4px 6px)}
 .tierC{color:var(--warn);font-weight:700}
-.gated td{opacity:.45}
+tr.gated td{opacity:.42}
+tr.gated td.nm{text-decoration:line-through;text-decoration-color:var(--warn)}
+.lock{color:var(--warn);font-weight:700;font-size:11px;letter-spacing:.04em}
 .qtag{font-size:11px;color:var(--n80);display:block;margin-top:2px}
+.new{display:inline-block;font-size:10px;font-weight:700;color:#fff;background:var(--action);
+  padding:1px 5px;margin-left:6px;vertical-align:1px}
 
-.legend{
-  display:flex;flex-wrap:wrap;gap:26px;align-items:center;
-  margin:18px 0 8px;font-size:12.5px;color:var(--n90);
-}
+.legend{display:flex;flex-wrap:wrap;gap:24px;align-items:center;margin:16px 0 8px;
+  font-size:12.5px;color:var(--n90)}
 .ramp{display:flex;align-items:center;gap:8px}
-.ramp i{display:block;width:150px;height:12px;background:linear-gradient(90deg,#fff,var(--b30),var(--navy));border:1px solid var(--n40)}
+.ramp i{display:block;width:140px;height:12px;
+  background:linear-gradient(90deg,#fff,var(--b30),var(--navy));border:1px solid var(--n40)}
 .swatch{display:inline-block;width:22px;height:12px;border:1px solid var(--n40);vertical-align:-1px;margin-right:6px;
   background:repeating-linear-gradient(135deg,#fff 0 4px,rgba(176,28,132,.55) 4px 6px)}
 
-#net{background:#fff;border:1px solid var(--n30);display:block;width:100%;height:720px}
+#net{background:#fff;border:1px solid var(--n30);display:block;width:100%;height:760px}
 .node{cursor:pointer}
-.node:focus-visible{outline:none}
-.hub{font:500 12px Roboto,sans-serif;fill:var(--navy)}
+.hub{font:500 11.5px Roboto,sans-serif;fill:var(--navy)}
 .nlabel{font:400 10px Roboto,sans-serif;fill:var(--n90);pointer-events:none}
-.link{stroke:var(--n40);stroke-opacity:.75}
+.link{stroke:var(--n40);stroke-opacity:.7}
 
-.tip{
-  position:fixed;pointer-events:none;background:var(--navy);color:#fff;padding:11px 13px;
-  max-width:340px;font-size:12.5px;line-height:1.45;z-index:50;opacity:0;transition:opacity .12s;
-}
+.tip{position:fixed;pointer-events:none;background:var(--navy);color:#fff;padding:11px 13px;
+  max-width:350px;font-size:12.5px;line-height:1.45;z-index:50;opacity:0;transition:opacity .12s}
 .tip b{font-weight:700;display:block;margin-bottom:4px}
 .tip .k{color:var(--b30)}
-
-.panel{background:#fff;border:1px solid var(--n30);border-left:4px solid var(--navy);padding:18px 22px;margin-bottom:24px;max-width:88ch}
-.panel p{margin:0 0 10px}
-.panel p:last-child{margin-bottom:0}
 .hide{display:none}
 @media (prefers-reduced-motion:reduce){.tip{transition:none}}
-@media (max-width:820px){
-  .shell{padding:24px 14px 60px} h1{font-size:24px}
-  td.sub,th.sub{display:none} #net{height:560px}
-}
+@media (max-width:900px){.shell{padding:24px 14px 60px}h1{font-size:23px}
+  td.sub,th.sub{display:none}#net{height:560px}.modebar{flex-direction:column}
+  .modebar button{margin-left:0;margin-top:-1px}}
 </style>
 </head>
 <body>
 <div class="shell">
 
 <header class="masthead">
-  <h1>Which applied literacy and applied math sub-skills should carry blueprint weight?</h1>
-  <p class="lede">Fifty-seven sub-skills scored on demand evidence, coverage gap against ACT WorkKeys,
-  AI-era trajectory and assessability with high-school juniors and seniors. The hatching marks scores that rest on inference rather than measurement.</p>
-  <p class="meta">Working document · v2 · 21 September 2026 · companion to
-  CB_workforce_readiness_skill_crosswalk_v2.xlsx</p>
+  <h1>Which skills should carry weight across the whole assessment?</h1>
+  <p class="lede">111 sub-skills across twelve candidate sections, scored on six dimensions.
+  Switch the intended use and the ranking changes — seven skills disappear entirely, and they are
+  among the ones employers ask for most.</p>
+  <p class="meta">Working document · 21 September 2026 · companion to
+  CB_workforce_readiness_section_appraisal.xlsx and …skill_crosswalk_v2.xlsx</p>
 </header>
 
-<div class="panel">
-  <p>A cell is hatched when the demand
-  judgement behind it is tier C — inference, an LLM-derived score, or employer opinion rather than
-  a measurement of what workers do. Three of the fifteen highest-ranked sub-skills are hatched, and
-  only two rest on direct measurement of workers.</p>
+<div class="modebar" role="group" aria-label="Intended use">
+  <button id="m-sig" aria-pressed="true"><b>Employer signaling</b>
+    <small>Faking resistance weighted heavily · fakable skills gated out</small></button>
+  <button id="m-acc" aria-pressed="false"><b>Accountability</b>
+    <small>Construct maturity and measurability weighted heavily · no faking gate</small></button>
+</div>
+<p class="modenote" id="modenote"></p>
 
+<div class="panel alert">
+  <p><strong>Two things the colour is hiding, which the markers show instead.</strong> Hatching
+  marks a score built on tier C evidence — inference or opinion rather than measurement of workers.
+  Strikethrough marks a skill gated out of the employer-signaling use because it can only be
+  measured by self-report, and a fakable score handed to an employer about a 17-year-old is worse
+  than no score.</p>
+  <p>Only one of the twenty highest-ranked skills rests on tier A evidence. Nothing in these 111
+  rows reaches the top of the scale on direct measurement of what workers actually do.</p>
 </div>
 
 <div class="tabs" role="tablist">
-  <button class="tab" id="t-heat" role="tab" aria-selected="true" aria-controls="v-heat">Heat map</button>
-  <button class="tab" id="t-net" role="tab" aria-selected="false" aria-controls="v-net">Network map</button>
+  <button class="tab" id="t-heat" role="tab" aria-selected="true">Heat map</button>
+  <button class="tab" id="t-net" role="tab" aria-selected="false">Network map</button>
 </div>
 
 <div class="controls">
-  <label class="ctl"><span>Domain</span>
-    <div class="seg" id="f-dom">
-      <button data-v="all" aria-pressed="true">Both</button>
-      <button data-v="Literacy" aria-pressed="false">Literacy</button>
-      <button data-v="Math" aria-pressed="false">Math</button>
-    </div>
-  </label>
+  <label class="ctl" for="f-dom"><span>Section</span>
+    <select id="f-dom"><option value="all">All twelve sections</option></select></label>
+  <label class="ctl"><span>Origin</span>
+    <div class="seg" id="f-org">
+      <button data-v="all" aria-pressed="true">All</button>
+      <button data-v="new" aria-pressed="false">New only</button>
+      <button data-v="carried" aria-pressed="false">Literacy &amp; math only</button>
+    </div></label>
   <label class="ctl"><span>Evidence tier</span>
     <div class="seg" id="f-evd">
       <button data-v="all" aria-pressed="true">All</button>
       <button data-v="A" aria-pressed="false">A only</button>
       <button data-v="AB" aria-pressed="false">A and B</button>
-    </div>
-  </label>
-  <label class="ctl" for="f-min"><span>Minimum priority: <b id="f-min-v">0</b></span>
-    <input type="range" id="f-min" min="0" max="90" step="5" value="0">
-  </label>
-  <label class="ctl"><span>Sort</span>
+    </div></label>
+  <label class="ctl" for="f-min"><span>Minimum score: <b id="f-min-v">0</b></span>
+    <input type="range" id="f-min" min="0" max="95" step="5" value="0"></label>
+  <label class="ctl"><span>Grouping</span>
     <div class="seg" id="f-sort">
-      <button data-v="priority" aria-pressed="true">Priority</button>
-      <button data-v="id" aria-pressed="false">ID</button>
-      <button data-v="dem" aria-pressed="false">Demand</button>
-    </div>
-  </label>
+      <button data-v="score" aria-pressed="true">By score</button>
+      <button data-v="domain" aria-pressed="false">By section</button>
+    </div></label>
+  <label class="chk"><input type="checkbox" id="f-gated" checked> Show gated skills</label>
   <span class="count" id="count"></span>
 </div>
 
 <section id="v-heat" role="tabpanel" aria-labelledby="t-heat">
   <div class="legend">
-    <span class="ramp">Priority <i></i> 0 &nbsp;→&nbsp; 100</span>
-    <span><span class="swatch"></span>Tier C evidence — inference, not measurement</span>
-    <span>Faded row = gated out on demand</span>
+    <span class="ramp">Score <i></i> 0 → 100</span>
+    <span><span class="swatch"></span>Tier C — inference, not measurement</span>
+    <span style="text-decoration:line-through;text-decoration-color:#B01C84">Gated out of this use</span>
   </div>
   <table>
     <thead><tr>
       <th>ID</th><th>Sub-skill</th><th class="sub">AI-era intermediating skill</th>
       <th class="num" title="Demand evidence">DEM</th>
-      <th class="num" title="Coverage gap vs. WorkKeys">GAP</th>
+      <th class="num" title="Construct maturity">CON</th>
+      <th class="num" title="Not covered by the NCRC incumbent">GAP</th>
+      <th class="num" title="Resistance to faking">FAK</th>
       <th class="num" title="AI-era trajectory">AIT</th>
-      <th class="num" title="Assessability with 16-18 year olds">ASM</th>
-      <th class="num">Tier</th><th class="num">Priority</th>
+      <th class="num" title="Assessability with 16-18s at census scale">ASM</th>
+      <th class="num">Tier</th><th class="num" id="scorehead">Score</th>
     </tr></thead>
     <tbody id="rows"></tbody>
   </table>
@@ -181,20 +195,20 @@ td.cell{text-align:center;font-variant-numeric:tabular-nums;font-weight:500;widt
 
 <section id="v-net" role="tabpanel" aria-labelledby="t-net" class="hide">
   <div class="legend">
-    <span>Node size = priority</span>
-    <span>Colour = AI-era quadrant:</span>
+    <span>Node size = score</span><span>Colour = AI-era quadrant:</span>
     <span><span class="swatch" style="background:#1B2264"></span>Anchor</span>
     <span><span class="swatch" style="background:#236CE1"></span>Transform</span>
     <span><span class="swatch" style="background:#2CB7FC"></span>Deepen</span>
     <span><span class="swatch" style="background:#A3DCFF"></span>Streamline</span>
-    <span><span class="swatch" style="background:#fff;border-color:#B01C84;border-width:2px"></span>Magenta ring = tier C</span>
+    <span><span class="swatch" style="background:#D8DCE3"></span>Unclassified</span>
+    <span><span class="swatch" style="background:#fff;border-color:#B01C84;border-width:2px"></span>Tier C</span>
   </div>
-  <svg id="net" role="img" aria-label="Force-directed map of sub-skills clustered by their AI-era intermediating skill"></svg>
-  <div class="panel" style="margin-top:22px">
-    <p>Sub-skills are tethered to the Burning Glass Institute / aiEDU intermediating skill they map
-    onto, so the clusters show where blueprint weight would concentrate. Two things to look for:
-    hubs that are large and unhatched (safe investments), and hubs where every attached node carries
-    a magenta ring (a cluster you would be building on inference alone).</p>
+  <svg id="net" role="img" aria-label="Force-directed map of sub-skills clustered by AI-era intermediating skill"></svg>
+  <div class="panel" style="margin-top:20px">
+    <p>Hubs are the Burning Glass Institute / aiEDU intermediating skills. Raise the minimum score
+    to thin the graph. The cluster worth looking at hardest is Metacognition and self-regulation:
+    in accountability mode it is one of the largest hubs on the map, and in signaling mode almost
+    all of it vanishes.</p>
   </div>
 </section>
 
@@ -202,173 +216,173 @@ td.cell{text-align:center;font-variant-numeric:tabular-nums;font-weight:500;widt
 </div>
 
 <script>
-const DATA = [{"id": "L-01", "domain": "Literacy", "name": "Locate a single explicit detail in a short, simple document", "wsmn": "Information literacy", "quadrant": "Streamline", "dem": 3, "gap": 0, "ait": 0, "asm": 3, "evd": "A", "priority": 55.0, "note": "Universal but pure retrieval. Keep as floor items; do not spend blueprint weight here.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "L-02", "domain": "Literacy", "name": "Identify the main idea or central purpose of a document", "wsmn": "Critical reading", "quadrant": "Anchor", "dem": 3, "gap": 0, "ait": 1, "asm": 3, "evd": "B", "priority": 63.3, "note": "Foundational. WSMN treats critical reading as the single highest-frequency Anchor skill (36 of 140 objectives).", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "L-03", "domain": "Literacy", "name": "Locate multiple details in a longer document containing extraneous information", "wsmn": "Information literacy", "quadrant": "Streamline", "dem": 3, "gap": 0, "ait": 1, "asm": 3, "evd": "B", "priority": 63.3, "note": "Extraneous-information handling is the workplace-realistic version of retrieval.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "L-04", "domain": "Literacy", "name": "Integrate information across two or more separate documents", "wsmn": "Research design and planning", "quadrant": "Transform", "dem": 2, "gap": 3, "ait": 3, "asm": 3, "evd": "B", "priority": 88.3, "note": "Multi-source synthesis is the core literacy act when information arrives via retrieval and generation. PIAAC Cycle 2 added it; WorkKeys has nothing.", "frameworks": ["PIAAC", "SfS"]}, {"id": "L-05", "domain": "Literacy", "name": "Infer the meaning of an unfamiliar word or phrase from context", "wsmn": "Vocabulary usage", "quadrant": "Streamline", "dem": 2, "gap": 0, "ait": 1, "asm": 3, "evd": "B", "priority": 51.7, "note": "WSMN scores vocabulary usage at 0.99 automation - the most automatable skill in their set.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "L-06", "domain": "Literacy", "name": "Apply an acronym, jargon term or technical term that IS defined in the document", "wsmn": "Vocabulary usage", "quadrant": "Streamline", "dem": 3, "gap": 0, "ait": 1, "asm": 3, "evd": "B", "priority": 63.3, "note": "Safe version of jargon handling for this population: the document supplies the meaning.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "L-07", "domain": "Literacy", "name": "Infer the meaning of an acronym or technical term NOT defined in the document", "wsmn": "Vocabulary usage", "quadrant": "Streamline", "dem": 2, "gap": 0, "ait": 1, "asm": 1, "evd": "B", "priority": 38.3, "note": "ASM downgraded: for a 17-year-old with no sector exposure this may measure prior employment, not reading.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "L-08", "domain": "Literacy", "name": "Determine when to perform a step within a sequence of steps", "wsmn": "Critical reading", "quadrant": "Anchor", "dem": 3, "gap": 0, "ait": 1, "asm": 3, "evd": "A", "priority": 63.3, "note": "Procedural sequencing. Distinctively workplace and absent from the adult-literacy frameworks.", "frameworks": ["WorkKeys", "SfS"]}, {"id": "L-09", "domain": "Literacy", "name": "Apply instructions to the situation described in the document", "wsmn": "Information literacy", "quadrant": "Streamline", "dem": 3, "gap": 0, "ait": 0, "asm": 3, "evd": "A", "priority": 55.0, "note": "High frequency, low ceiling. Floor item territory.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "L-10", "domain": "Literacy", "name": "Choose a different action when conditions change", "wsmn": "Critical reading", "quadrant": "Anchor", "dem": 2, "gap": 0, "ait": 2, "asm": 2, "evd": "C", "priority": 53.3, "note": "Only WorkKeys asserts this. No independent demand evidence - test it in the JTA.", "frameworks": ["WorkKeys"]}, {"id": "L-11", "domain": "Literacy", "name": "Apply conditional (if-then) rules stated in a document", "wsmn": "Logic, formal and informal", "quadrant": "Streamline", "dem": 3, "gap": 0, "ait": 2, "asm": 3, "evd": "B", "priority": 71.7, "note": "Conditional rules are pervasive in policy and safety documents. Skills for Success files this under Problem Solving, not Reading.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "L-12", "domain": "Literacy", "name": "Transfer information or principles to a situation not described in the document", "wsmn": "Critical reading", "quadrant": "Anchor", "dem": 2, "gap": 0, "ait": 3, "asm": 2, "evd": "C", "priority": 61.7, "note": "Transfer to undescribed situations is what WSMN means by the cognitive bar rising.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "L-13", "domain": "Literacy", "name": "Identify the rationale behind an entire document or a section of it", "wsmn": "Rhetorical reasoning", "quadrant": "Transform", "dem": 1, "gap": 0, "ait": 2, "asm": 2, "evd": "C", "priority": 41.7, "note": "Thin demand evidence at entry level.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "L-14", "domain": "Literacy", "name": "Evaluate the relevance, credibility or truthfulness of a source", "wsmn": "Source credibility assessment", "quadrant": "Deepen", "dem": 2, "gap": 3, "ait": 3, "asm": 3, "evd": "B", "priority": 88.3, "note": "TOP CANDIDATE. Complete WorkKeys gap, a named PIAAC process, explicit in Skills for Success, and a Deepen skill in WSMN. Also the clearest bridge to the AILit framework.", "frameworks": ["PIAAC", "SfS"]}, {"id": "L-15", "domain": "Literacy", "name": "Determine intended audience; reflect on the author's use of evidence or language", "wsmn": "Rhetorical reasoning", "quadrant": "Transform", "dem": 1, "gap": 3, "ait": 2, "asm": 2, "evd": "C", "priority": 61.7, "note": "Substantial overlap with existing SAT Reading and Writing craft-and-structure content. Check redundancy before adding.", "frameworks": ["PIAAC", "SfS"]}, {"id": "L-16", "domain": "Literacy", "name": "Reconcile conflicting information across sources", "wsmn": "Evidence evaluation", "quadrant": "Deepen", "dem": 2, "gap": 3, "ait": 3, "asm": 2, "evd": "C", "priority": 81.7, "note": "No US work-readiness instrument assesses reconciling conflicting sources. Pair with L-04.", "frameworks": ["PIAAC", "SfS"]}, {"id": "L-17", "domain": "Literacy", "name": "Locate a specific value in a simple workplace graphic", "wsmn": "Data visualization", "quadrant": "Transform", "dem": 3, "gap": 0, "ait": 0, "asm": 3, "evd": "A", "priority": 55.0, "note": "Universal. Commercial pre-employment tests all include data interpretation.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "L-18", "domain": "Literacy", "name": "Compare two or more trends, patterns or relationships across graphics", "wsmn": "Data visualization", "quadrant": "Transform", "dem": 2, "gap": 0, "ait": 2, "asm": 3, "evd": "B", "priority": 60.0, "note": "", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "L-19", "domain": "Literacy", "name": "Interpret a trend or relationship and make a reasonable inference or decision", "wsmn": "Data visualization", "quadrant": "Transform", "dem": 2, "gap": 0, "ait": 3, "asm": 3, "evd": "B", "priority": 68.3, "note": "Interpretation-and-decide is the part of data work that survives automation.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "L-20", "domain": "Literacy", "name": "Justify an inference or decision drawn from a graphic", "wsmn": "Evidence evaluation", "quadrant": "Deepen", "dem": 1, "gap": 0, "ait": 3, "asm": 2, "evd": "C", "priority": 50.0, "note": "Justification is hard to elicit in selected response.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "L-21", "domain": "Literacy", "name": "Select the most effective graphic for a stated purpose, and justify the choice", "wsmn": "Data visualization", "quadrant": "Transform", "dem": 1, "gap": 0, "ait": 2, "asm": 1, "evd": "C", "priority": 35.0, "note": "A production task squeezed into selected response. Deprioritise without a TEI format.", "frameworks": ["WorkKeys", "SfS"]}, {"id": "L-22", "domain": "Literacy", "name": "Complete a preformatted workplace document (form, timesheet, report template)", "wsmn": "Written communication", "quadrant": "Transform", "dem": 3, "gap": 3, "ait": 1, "asm": 2, "evd": "A", "priority": 76.7, "note": "STAMP: over two-thirds of workers use forms regularly, yet no framework assesses completing one. Strongest demand-plus-gap combination in the literacy set.", "frameworks": ["SfS"]}, {"id": "L-23", "domain": "Literacy", "name": "Produce a short written message appropriate to audience and purpose", "wsmn": "Written communication", "quadrant": "Transform", "dem": 2, "gap": 2, "ait": 2, "asm": 1, "evd": "A", "priority": 60.0, "note": "ASM downgraded: constructed response conflicts with the accountability use's turnaround requirement.", "frameworks": ["WorkKeys", "SfS"]}, {"id": "L-24", "domain": "Literacy", "name": "Produce extended written text presenting comparison or analysis", "wsmn": "Analytical writing", "quadrant": "Transform", "dem": 0, "gap": 2, "ait": 2, "asm": 0, "evd": "A", "priority": 0.0, "note": "STAMP: roughly 10% of non-managerial workers write documents five or more pages. Gated out on demand.", "frameworks": ["WorkKeys", "SfS"]}, {"id": "M-01", "domain": "Math", "name": "Single-operation arithmetic with positive whole numbers", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "dem": 3, "gap": 0, "ait": 0, "asm": 3, "evd": "A", "priority": 55.0, "note": "Near-universal. Floor items.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-02", "domain": "Math", "name": "Operations involving negative numbers", "wsmn": "Algebraic fluency", "quadrant": "Streamline", "dem": 1, "gap": 0, "ait": 0, "asm": 3, "evd": "C", "priority": 31.7, "note": "No direct demand evidence at entry level.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-03", "domain": "Math", "name": "Convert among fractions, decimals and percentages", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "dem": 3, "gap": 0, "ait": 1, "asm": 3, "evd": "A", "priority": 63.3, "note": "STAMP: about two-thirds of workers use fractions, decimals or percentages. Highest-frequency non-trivial demand in the economy.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-04", "domain": "Math", "name": "Add or subtract fractions with a common denominator", "wsmn": "Algebraic fluency", "quadrant": "Streamline", "dem": 2, "gap": 0, "ait": 0, "asm": 3, "evd": "A", "priority": 43.3, "note": "", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-05", "domain": "Math", "name": "Operate on fractions with unlike denominators", "wsmn": "Algebraic fluency", "quadrant": "Streamline", "dem": 2, "gap": 0, "ait": 0, "asm": 3, "evd": "A", "priority": 43.3, "note": "", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-06", "domain": "Math", "name": "Calculate an average or mean", "wsmn": "Statistical reasoning", "quadrant": "Transform", "dem": 3, "gap": 0, "ait": 1, "asm": 3, "evd": "B", "priority": 63.3, "note": "", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-07", "domain": "Math", "name": "Work with simple ratios, proportions and rates", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "dem": 3, "gap": 0, "ait": 1, "asm": 3, "evd": "A", "priority": 63.3, "note": "", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-08", "domain": "Math", "name": "Set up ratios, rates or proportions where at least one quantity is a fraction", "wsmn": "Algebraic fluency", "quadrant": "Streamline", "dem": 1, "gap": 0, "ait": 1, "asm": 3, "evd": "C", "priority": 40.0, "note": "WorkKeys places this at Level 7 without published demand evidence.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-09", "domain": "Math", "name": "Find a percentage of a number and apply it (discount, markup, tax)", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "dem": 3, "gap": 0, "ait": 1, "asm": 3, "evd": "A", "priority": 63.3, "note": "Discount, markup and tax are the canonical entry-level applications.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-10", "domain": "Math", "name": "Calculate a reverse percentage", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "dem": 2, "gap": 0, "ait": 2, "asm": 3, "evd": "B", "priority": 60.0, "note": "Reverse percentages discriminate well and cannot be done by pattern-matching.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-11", "domain": "Math", "name": "Convert units within or between systems, conversion factor supplied", "wsmn": "Measurement and uncertainty analysis", "quadrant": "Anchor", "dem": 3, "gap": 0, "ait": 1, "asm": 3, "evd": "A", "priority": 63.3, "note": "", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-12", "domain": "Math", "name": "Multi-step unit conversion", "wsmn": "Measurement and uncertainty analysis", "quadrant": "Anchor", "dem": 2, "gap": 0, "ait": 1, "asm": 3, "evd": "B", "priority": 51.7, "note": "", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-13", "domain": "Math", "name": "Perform operations in mixed units (feet and inches, hours and minutes)", "wsmn": "Measurement and uncertainty analysis", "quadrant": "Anchor", "dem": 3, "gap": 0, "ait": 1, "asm": 3, "evd": "B", "priority": 63.3, "note": "High workplace authenticity, near-zero coverage in HS math curricula. Expect a large measured-versus-taught gap.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-14", "domain": "Math", "name": "Calculate perimeter, circumference or area of a basic shape", "wsmn": "Spatial reasoning", "quadrant": "Anchor", "dem": 2, "gap": 0, "ait": 1, "asm": 3, "evd": "B", "priority": 51.7, "note": "", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-15", "domain": "Math", "name": "Rearrange a formula to solve for a needed quantity", "wsmn": "Algebraic fluency", "quadrant": "Streamline", "dem": 1, "gap": 0, "ait": 1, "asm": 2, "evd": "C", "priority": 33.3, "note": "", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-16", "domain": "Math", "name": "Calculate the volume of rectangular solids", "wsmn": "Spatial reasoning", "quadrant": "Anchor", "dem": 2, "gap": 0, "ait": 1, "asm": 3, "evd": "B", "priority": 51.7, "note": "", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-17", "domain": "Math", "name": "Calculate the volume of spheres, cylinders or cones", "wsmn": "Spatial reasoning", "quadrant": "Anchor", "dem": 0, "gap": 0, "ait": 0, "asm": 3, "evd": "C", "priority": 0.0, "note": "Gated out. Probably an artifact of WorkKeys trade-specific job profiles rather than a general entry-level demand.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-18", "domain": "Math", "name": "Calculate production rates and rate multiplied by time", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "dem": 3, "gap": 0, "ait": 1, "asm": 3, "evd": "A", "priority": 63.3, "note": "", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-19", "domain": "Math", "name": "Determine the better economic value among alternatives (unit cost, % difference)", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "dem": 3, "gap": 0, "ait": 2, "asm": 3, "evd": "B", "priority": 71.7, "note": "", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-20", "domain": "Math", "name": "Locate where an error occurred in a calculation", "wsmn": "Troubleshooting", "quadrant": "Anchor", "dem": 2, "gap": 0, "ait": 3, "asm": 3, "evd": "B", "priority": 68.3, "note": "Error location. WorkKeys is the only framework that levels this, and it is the closest existing analogue to verification work.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-21", "domain": "Math", "name": "Diagnose why an error occurred", "wsmn": "Troubleshooting", "quadrant": "Anchor", "dem": 2, "gap": 0, "ait": 3, "asm": 2, "evd": "B", "priority": 61.7, "note": "Error diagnosis. WSMN classifies troubleshooting as Anchor - irreducibly human, developed only by doing.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-22", "domain": "Math", "name": "Decide what information, operations or conversions a problem requires", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "dem": 3, "gap": 0, "ait": 3, "asm": 3, "evd": "B", "priority": 80.0, "note": "TOP CANDIDATE. Problem formulation - deciding what the situation requires. All three legacy frameworks treat it as central, and WSMN singles it out as the part of mathematics that stays human when computation is automated.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-23", "domain": "Math", "name": "Order information before calculating; discard extraneous information", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "dem": 3, "gap": 0, "ait": 2, "asm": 3, "evd": "B", "priority": 71.7, "note": "", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-24", "domain": "Math", "name": "Identify the correct equation for solving a problem", "wsmn": "Computational thinking", "quadrant": "Transform", "dem": 2, "gap": 0, "ait": 2, "asm": 3, "evd": "B", "priority": 60.0, "note": "The only symbolic-algebra-adjacent skill in the WorkKeys model.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-25", "domain": "Math", "name": "Apply measures of central tendency, spread, tolerance, or weighted mean", "wsmn": "Statistical reasoning", "quadrant": "Transform", "dem": 1, "gap": 0, "ait": 2, "asm": 2, "evd": "C", "priority": 41.7, "note": "", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-26", "domain": "Math", "name": "Reason about probability, likelihood or chance", "wsmn": "Probabilistic thinking", "quadrant": "Deepen", "dem": 1, "gap": 3, "ait": 3, "asm": 2, "evd": "C", "priority": 70.0, "note": "Gap in both work-readiness frameworks and a Deepen skill in WSMN, but demand evidence at entry level is thin. Test before committing.", "frameworks": ["PIAAC"]}, {"id": "M-27", "domain": "Math", "name": "Estimate a quantity when exact data are unavailable", "wsmn": "Estimation and approximation", "quadrant": "Streamline", "dem": 2, "gap": 3, "ait": 3, "asm": 3, "evd": "B", "priority": 88.3, "note": "CONFLICT: WSMN places estimation in Streamline (high automation, low augmentation) yet its own mathematics section says to teach estimation as verification rather than as technique. Scored on the verification reading. See README.", "frameworks": ["PIAAC", "SfS"]}, {"id": "M-28", "domain": "Math", "name": "Judge whether a result is plausible in magnitude or precision", "wsmn": "Estimation and approximation", "quadrant": "Streamline", "dem": 2, "gap": 3, "ait": 3, "asm": 3, "evd": "C", "priority": 88.3, "note": "TOP CANDIDATE, WEAKEST EVIDENCE. Plausibility judgement of a result the system produced. The single largest gap, but the demand claim is currently an inference. Strand A item block M-TOOL exists to convert this from tier C to tier A.", "frameworks": ["PIAAC", "SfS"]}, {"id": "M-29", "domain": "Math", "name": "Extract quantitative information from a table, chart or diagram in order to calculate", "wsmn": "Data visualization", "quadrant": "Transform", "dem": 3, "gap": 1, "ait": 2, "asm": 3, "evd": "A", "priority": 78.3, "note": "Covered by WorkKeys but in a separate test. Your sectioning decision, not a content gap.", "frameworks": ["WorkKeys", "PIAAC", "SfS"]}, {"id": "M-30", "domain": "Math", "name": "Work with mathematical information in dynamic, interactive digital tools", "wsmn": "Computational thinking", "quadrant": "Transform", "dem": 2, "gap": 3, "ait": 3, "asm": 1, "evd": "B", "priority": 75.0, "note": "ASM downgraded: requires technology-enhanced items, which forces a platform decision early.", "frameworks": ["PIAAC", "SfS"]}, {"id": "M-31", "domain": "Math", "name": "Communicate a quantitative result and its implications", "wsmn": "Written communication", "quadrant": "Transform", "dem": 1, "gap": 3, "ait": 2, "asm": 1, "evd": "C", "priority": 55.0, "note": "PIAAC Cycle 2 deliberately dropped communicating from the numeracy definition that Cycle 1 included.", "frameworks": ["SfS"]}, {"id": "M-32", "domain": "Math", "name": "Apply basic algebra (solve for an unknown using variables)", "wsmn": "Algebraic fluency", "quadrant": "Streamline", "dem": 1, "gap": 2, "ait": 1, "asm": 3, "evd": "A", "priority": 53.3, "note": "STAMP: only about 22% of workers use math beyond fractions, decimals and percentages, most commonly simple algebra. This is the evidence that caps your ceiling.", "frameworks": ["PIAAC", "SfS"]}, {"id": "M-33", "domain": "Math", "name": "Apply calculus or advanced statistical technique", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "dem": 0, "gap": 3, "ait": 0, "asm": 1, "evd": "A", "priority": 0.0, "note": "Gated out. STAMP: about 5% of workers. Illustrates why the demand gate is necessary - absence from WorkKeys is not by itself a reason to include something.", "frameworks": ["PIAAC", "SfS"]}];
+const DATA = [{"id": "L-01", "domain": "Applied literacy", "name": "Locate a single explicit detail in a short, simple document", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 0, "ASM": 3, "evd": "A", "wsmn": "Information literacy", "quadrant": "Streamline", "note": "Universal but pure retrieval. Keep as floor items; do not spend blueprint weight here.", "carried": true, "sig": 75.0, "acc": 70.0}, {"id": "L-02", "domain": "Applied literacy", "name": "Identify the main idea or central purpose of a document", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "B", "wsmn": "Critical reading", "quadrant": "Anchor", "note": "Foundational. WSMN treats critical reading as the single highest-frequency Anchor skill (36 of 140 objectives).", "carried": true, "sig": 80.0, "acc": 76.7}, {"id": "L-03", "domain": "Applied literacy", "name": "Locate multiple details in a longer document containing extraneous information", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "B", "wsmn": "Information literacy", "quadrant": "Streamline", "note": "Extraneous-information handling is the workplace-realistic version of retrieval.", "carried": true, "sig": 80.0, "acc": 76.7}, {"id": "L-04", "domain": "Applied literacy", "name": "Integrate information across two or more separate documents", "DEM": 2, "CON": 3, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 3, "evd": "B", "wsmn": "Research design and planning", "quadrant": "Transform", "note": "Multi-source synthesis is the core literacy act when information arrives via retrieval and generation. PIAAC Cycle 2 added it; WorkKeys has nothing. Largest single gap in the WorkKeys model, and the change PIAAC made specifically to reflect digital work. High priority. Also relatively easy to item-write and hard for competitors to retrofit.", "carried": true, "sig": 93.3, "acc": 95.0}, {"id": "L-05", "domain": "Applied literacy", "name": "Infer the meaning of an unfamiliar word or phrase from context", "DEM": 2, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "B", "wsmn": "Vocabulary usage", "quadrant": "Streamline", "note": "WSMN scores vocabulary usage at 0.99 automation - the most automatable skill in their set.", "carried": true, "sig": 73.3, "acc": 71.7}, {"id": "L-06", "domain": "Applied literacy", "name": "Apply an acronym, jargon term or technical term that IS defined in the document", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "B", "wsmn": "Vocabulary usage", "quadrant": "Streamline", "note": "Safe version of jargon handling for this population: the document supplies the meaning. Safe for this population because the document supplies the meaning. Prefer this over L-07.", "carried": true, "sig": 80.0, "acc": 76.7}, {"id": "L-07", "domain": "Applied literacy", "name": "Infer the meaning of an acronym or technical term NOT defined in the document", "DEM": 2, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 1, "evd": "B", "wsmn": "Vocabulary usage", "quadrant": "Streamline", "note": "ASM downgraded: for a 17-year-old with no sector exposure this may measure prior employment, not reading. Primary construct threat for 16-18 year olds: for an incumbent this is a reading skill, for a student with no sector exposure it may be a knowledge deficit. If included, run DIF by work-experience status.", "carried": true, "sig": 63.3, "acc": 55.0}, {"id": "L-08", "domain": "Applied literacy", "name": "Determine when to perform a step within a sequence of steps", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "A", "wsmn": "Critical reading", "quadrant": "Anchor", "note": "Procedural sequencing. Distinctively workplace and absent from the adult-literacy frameworks. Distinctively workplace; the adult-literacy frameworks do not name it. Strong face validity with employers.", "carried": true, "sig": 80.0, "acc": 76.7}, {"id": "L-09", "domain": "Applied literacy", "name": "Apply instructions to the situation described in the document", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 0, "ASM": 3, "evd": "A", "wsmn": "Information literacy", "quadrant": "Streamline", "note": "High frequency, low ceiling. Floor item territory.", "carried": true, "sig": 75.0, "acc": 70.0}, {"id": "L-10", "domain": "Applied literacy", "name": "Choose a different action when conditions change", "DEM": 2, "CON": 2, "GAP": 0, "FAK": 3, "AIT": 2, "ASM": 2, "evd": "C", "wsmn": "Critical reading", "quadrant": "Anchor", "note": "Only WorkKeys asserts this. No independent demand evidence - test it in the JTA. WorkKeys-specific and explicitly leveled. Worth preserving; it is one of the few places the incumbent is genuinely ahead of the research frameworks.", "carried": true, "sig": 68.3, "acc": 61.7}, {"id": "L-11", "domain": "Applied literacy", "name": "Apply conditional (if-then) rules stated in a document", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 2, "ASM": 3, "evd": "B", "wsmn": "Logic, formal and informal", "quadrant": "Streamline", "note": "Conditional rules are pervasive in policy and safety documents. Skills for Success files this under Problem Solving, not Reading. Note that Skills for Success classifies this under Problem Solving rather than Reading. A dimensionality signal: check in field test whether conditional-rule items load with reading or with reasoning.", "carried": true, "sig": 85.0, "acc": 83.3}, {"id": "L-12", "domain": "Applied literacy", "name": "Transfer information or principles to a situation not described in the document", "DEM": 2, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 3, "ASM": 2, "evd": "C", "wsmn": "Critical reading", "quadrant": "Anchor", "note": "Transfer to undescribed situations is what WSMN means by the cognitive bar rising.", "carried": true, "sig": 78.3, "acc": 76.7}, {"id": "L-13", "domain": "Applied literacy", "name": "Identify the rationale behind an entire document or a section of it", "DEM": 1, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 2, "ASM": 2, "evd": "C", "wsmn": "Rhetorical reasoning", "quadrant": "Transform", "note": "Thin demand evidence at entry level.", "carried": true, "sig": 66.7, "acc": 65.0}, {"id": "L-14", "domain": "Applied literacy", "name": "Evaluate the relevance, credibility or truthfulness of a source", "DEM": 2, "CON": 3, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 3, "evd": "B", "wsmn": "Source credibility assessment", "quadrant": "Deepen", "note": "TOP CANDIDATE. Complete WorkKeys gap, a named PIAAC process, explicit in Skills for Success, and a Deepen skill in WSMN. Also the clearest bridge to the AILit framework. Complete gap in WorkKeys. Strongest single candidate for differentiation: defensible on current-work grounds, high public salience, and aligned to what PIAAC now treats as core.", "carried": true, "sig": 93.3, "acc": 95.0}, {"id": "L-15", "domain": "Applied literacy", "name": "Determine intended audience; reflect on the author's use of evidence or language", "DEM": 1, "CON": 3, "GAP": 3, "FAK": 3, "AIT": 2, "ASM": 2, "evd": "C", "wsmn": "Rhetorical reasoning", "quadrant": "Transform", "note": "Substantial overlap with existing SAT Reading and Writing craft-and-structure content. Check redundancy before adding. Overlaps substantially with existing SAT Reading and Writing craft-and-structure work. Check for redundancy before adding.", "carried": true, "sig": 76.7, "acc": 75.0}, {"id": "L-16", "domain": "Applied literacy", "name": "Reconcile conflicting information across sources", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 2, "evd": "C", "wsmn": "Evidence evaluation", "quadrant": "Deepen", "note": "No US work-readiness instrument assesses reconciling conflicting sources. Pair with L-04. No US work-readiness instrument assesses this. Combine with L-04.", "carried": true, "sig": 83.3, "acc": 78.3}, {"id": "L-17", "domain": "Applied literacy", "name": "Locate a specific value in a simple workplace graphic", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 0, "ASM": 3, "evd": "A", "wsmn": "Data visualization", "quadrant": "Transform", "note": "Universal. Commercial pre-employment tests all include data interpretation. Classification conflict - the three frameworks put this in three different places. See Proficiency scales tab.", "carried": true, "sig": 75.0, "acc": 70.0}, {"id": "L-18", "domain": "Applied literacy", "name": "Compare two or more trends, patterns or relationships across graphics", "DEM": 2, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 2, "ASM": 3, "evd": "B", "wsmn": "Data visualization", "quadrant": "Transform", "note": "", "carried": true, "sig": 78.3, "acc": 78.3}, {"id": "L-19", "domain": "Applied literacy", "name": "Interpret a trend or relationship and make a reasonable inference or decision", "DEM": 2, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 3, "ASM": 3, "evd": "B", "wsmn": "Data visualization", "quadrant": "Transform", "note": "Interpretation-and-decide is the part of data work that survives automation.", "carried": true, "sig": 83.3, "acc": 85.0}, {"id": "L-20", "domain": "Applied literacy", "name": "Justify an inference or decision drawn from a graphic", "DEM": 1, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 3, "ASM": 2, "evd": "C", "wsmn": "Evidence evaluation", "quadrant": "Deepen", "note": "Justification is hard to elicit in selected response.", "carried": true, "sig": 71.7, "acc": 71.7}, {"id": "L-21", "domain": "Applied literacy", "name": "Select the most effective graphic for a stated purpose, and justify the choice", "DEM": 1, "CON": 2, "GAP": 0, "FAK": 3, "AIT": 2, "ASM": 1, "evd": "C", "wsmn": "Data visualization", "quadrant": "Transform", "note": "A production task squeezed into selected response. Deprioritise without a TEI format. A production and judgement task squeezed into selected response. Item-writing is hard to do defensibly; deprioritise unless you have a TEI format for it.", "carried": true, "sig": 56.7, "acc": 48.3}, {"id": "L-22", "domain": "Applied literacy", "name": "Complete a preformatted workplace document (form, timesheet, report template)", "DEM": 3, "CON": 3, "GAP": 3, "FAK": 3, "AIT": 1, "ASM": 2, "evd": "A", "wsmn": "Written communication", "quadrant": "Transform", "note": "STAMP: over two-thirds of workers use forms regularly, yet no framework assesses completing one. Strongest demand-plus-gap combination in the literacy set. Over two-thirds of US workers use forms regularly (STAMP) yet effectively no framework assesses completing one. Genuine white space, but note STAMP also found mean form complexity around 3.2 on an 11-point scale - authentic forms may be too easy to discriminate.", "carried": true, "sig": 85.0, "acc": 78.3}, {"id": "L-23", "domain": "Applied literacy", "name": "Produce a short written message appropriate to audience and purpose", "DEM": 2, "CON": 3, "GAP": 2, "FAK": 3, "AIT": 2, "ASM": 1, "evd": "A", "wsmn": "Written communication", "quadrant": "Transform", "note": "ASM downgraded: constructed response conflicts with the accountability use's turnaround requirement. Constructed response adds cost, scoring risk and turnaround time. Weigh against the accountability use, which needs fast comparable results.", "carried": true, "sig": 75.0, "acc": 68.3}, {"id": "L-24", "domain": "Applied literacy", "name": "Produce extended written text presenting comparison or analysis", "DEM": 0, "CON": 3, "GAP": 2, "FAK": 3, "AIT": 2, "ASM": 0, "evd": "A", "wsmn": "Analytical writing", "quadrant": "Transform", "note": "STAMP: roughly 10% of non-managerial workers write documents five or more pages. Gated out on demand. STAMP: roughly 10% of non-managerial workers write documents five or more pages long. Low priority for this population.", "carried": true, "sig": 0.0, "acc": 0.0}, {"id": "M-01", "domain": "Applied math", "name": "Single-operation arithmetic with positive whole numbers", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 0, "ASM": 3, "evd": "A", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "note": "Near-universal. Floor items.", "carried": true, "sig": 75.0, "acc": 70.0}, {"id": "M-02", "domain": "Applied math", "name": "Operations involving negative numbers", "DEM": 1, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 0, "ASM": 3, "evd": "C", "wsmn": "Algebraic fluency", "quadrant": "Streamline", "note": "No direct demand evidence at entry level.", "carried": true, "sig": 61.7, "acc": 60.0}, {"id": "M-03", "domain": "Applied math", "name": "Convert among fractions, decimals and percentages", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "A", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "note": "STAMP: about two-thirds of workers use fractions, decimals or percentages. Highest-frequency non-trivial demand in the economy. STAMP: about two-thirds of workers use fractions, decimals or percentages. This is the single highest-frequency non-trivial math demand in the economy.", "carried": true, "sig": 80.0, "acc": 76.7}, {"id": "M-04", "domain": "Applied math", "name": "Add or subtract fractions with a common denominator", "DEM": 2, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 0, "ASM": 3, "evd": "A", "wsmn": "Algebraic fluency", "quadrant": "Streamline", "note": "", "carried": true, "sig": 68.3, "acc": 65.0}, {"id": "M-05", "domain": "Applied math", "name": "Operate on fractions with unlike denominators", "DEM": 2, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 0, "ASM": 3, "evd": "A", "wsmn": "Algebraic fluency", "quadrant": "Streamline", "note": "", "carried": true, "sig": 68.3, "acc": 65.0}, {"id": "M-06", "domain": "Applied math", "name": "Calculate an average or mean", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "B", "wsmn": "Statistical reasoning", "quadrant": "Transform", "note": "", "carried": true, "sig": 80.0, "acc": 76.7}, {"id": "M-07", "domain": "Applied math", "name": "Work with simple ratios, proportions and rates", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "A", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "note": "", "carried": true, "sig": 80.0, "acc": 76.7}, {"id": "M-08", "domain": "Applied math", "name": "Set up ratios, rates or proportions where at least one quantity is a fraction", "DEM": 1, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "C", "wsmn": "Algebraic fluency", "quadrant": "Streamline", "note": "WorkKeys places this at Level 7 without published demand evidence.", "carried": true, "sig": 66.7, "acc": 66.7}, {"id": "M-09", "domain": "Applied math", "name": "Find a percentage of a number and apply it (discount, markup, tax)", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "A", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "note": "Discount, markup and tax are the canonical entry-level applications.", "carried": true, "sig": 80.0, "acc": 76.7}, {"id": "M-10", "domain": "Applied math", "name": "Calculate a reverse percentage", "DEM": 2, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 2, "ASM": 3, "evd": "B", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "note": "Reverse percentages discriminate well and cannot be done by pattern-matching. Reliably difficult and reliably authentic (backing out pre-tax price, original wage before a raise). Good discrimination near the middle of the scale.", "carried": true, "sig": 78.3, "acc": 78.3}, {"id": "M-11", "domain": "Applied math", "name": "Convert units within or between systems, conversion factor supplied", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "A", "wsmn": "Measurement and uncertainty analysis", "quadrant": "Anchor", "note": "", "carried": true, "sig": 80.0, "acc": 76.7}, {"id": "M-12", "domain": "Applied math", "name": "Multi-step unit conversion", "DEM": 2, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "B", "wsmn": "Measurement and uncertainty analysis", "quadrant": "Anchor", "note": "", "carried": true, "sig": 73.3, "acc": 71.7}, {"id": "M-13", "domain": "Applied math", "name": "Perform operations in mixed units (feet and inches, hours and minutes)", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "B", "wsmn": "Measurement and uncertainty analysis", "quadrant": "Anchor", "note": "High workplace authenticity, near-zero coverage in HS math curricula. Expect a large measured-versus-taught gap. High workplace authenticity, near-zero coverage in HS math curricula. Expect a large gap between measured and taught - which is an argument for inclusion and a risk for washback.", "carried": true, "sig": 80.0, "acc": 76.7}, {"id": "M-14", "domain": "Applied math", "name": "Calculate perimeter, circumference or area of a basic shape", "DEM": 2, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "B", "wsmn": "Spatial reasoning", "quadrant": "Anchor", "note": "", "carried": true, "sig": 73.3, "acc": 71.7}, {"id": "M-15", "domain": "Applied math", "name": "Rearrange a formula to solve for a needed quantity", "DEM": 1, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 2, "evd": "C", "wsmn": "Algebraic fluency", "quadrant": "Streamline", "note": "", "carried": true, "sig": 61.7, "acc": 58.3}, {"id": "M-16", "domain": "Applied math", "name": "Calculate the volume of rectangular solids", "DEM": 2, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "B", "wsmn": "Spatial reasoning", "quadrant": "Anchor", "note": "", "carried": true, "sig": 73.3, "acc": 71.7}, {"id": "M-17", "domain": "Applied math", "name": "Calculate the volume of spheres, cylinders or cones", "DEM": 0, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 0, "ASM": 3, "evd": "C", "wsmn": "Spatial reasoning", "quadrant": "Anchor", "note": "Gated out. Probably an artifact of WorkKeys trade-specific job profiles rather than a general entry-level demand. Verify against artifact evidence before including. Plausibly an artifact of WorkKeys job profiles in specific trades rather than a general entry-level demand.", "carried": true, "sig": 0.0, "acc": 0.0}, {"id": "M-18", "domain": "Applied math", "name": "Calculate production rates and rate multiplied by time", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "A", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "note": "", "carried": true, "sig": 80.0, "acc": 76.7}, {"id": "M-19", "domain": "Applied math", "name": "Determine the better economic value among alternatives (unit cost, % difference)", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 2, "ASM": 3, "evd": "B", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "note": "", "carried": true, "sig": 85.0, "acc": 83.3}, {"id": "M-20", "domain": "Applied math", "name": "Locate where an error occurred in a calculation", "DEM": 2, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 3, "ASM": 3, "evd": "B", "wsmn": "Troubleshooting", "quadrant": "Anchor", "note": "Error location. WorkKeys is the only framework that levels this, and it is the closest existing analogue to verification work. WorkKeys is the only framework that operationalises error work as a distinct leveled skill (locate at L5, why at L6, reason at L7). Highest workplace authenticity in the whole math model - preserve it.", "carried": true, "sig": 83.3, "acc": 85.0}, {"id": "M-21", "domain": "Applied math", "name": "Diagnose why an error occurred", "DEM": 2, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 3, "ASM": 2, "evd": "B", "wsmn": "Troubleshooting", "quadrant": "Anchor", "note": "Error diagnosis. WSMN classifies troubleshooting as Anchor - irreducibly human, developed only by doing.", "carried": true, "sig": 78.3, "acc": 76.7}, {"id": "M-22", "domain": "Applied math", "name": "Decide what information, operations or conversions a problem requires", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 3, "ASM": 3, "evd": "B", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "note": "TOP CANDIDATE. Problem formulation - deciding what the situation requires. All three legacy frameworks treat it as central, and WSMN singles it out as the part of mathematics that stays human when computation is automated. The one process all three frameworks treat as central. Strong candidate for the organising principle of the math section rather than a content list.", "carried": true, "sig": 90.0, "acc": 90.0}, {"id": "M-23", "domain": "Applied math", "name": "Order information before calculating; discard extraneous information", "DEM": 3, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 2, "ASM": 3, "evd": "B", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "note": "", "carried": true, "sig": 85.0, "acc": 83.3}, {"id": "M-24", "domain": "Applied math", "name": "Identify the correct equation for solving a problem", "DEM": 2, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 2, "ASM": 3, "evd": "B", "wsmn": "Computational thinking", "quadrant": "Transform", "note": "The only symbolic-algebra-adjacent skill in the WorkKeys model. The only symbolic-algebra-adjacent skill anywhere in the WorkKeys math model.", "carried": true, "sig": 78.3, "acc": 78.3}, {"id": "M-25", "domain": "Applied math", "name": "Apply measures of central tendency, spread, tolerance, or weighted mean", "DEM": 1, "CON": 3, "GAP": 0, "FAK": 3, "AIT": 2, "ASM": 2, "evd": "C", "wsmn": "Statistical reasoning", "quadrant": "Transform", "note": "", "carried": true, "sig": 66.7, "acc": 65.0}, {"id": "M-26", "domain": "Applied math", "name": "Reason about probability, likelihood or chance", "DEM": 1, "CON": 3, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 2, "evd": "C", "wsmn": "Probabilistic thinking", "quadrant": "Deepen", "note": "Gap in both work-readiness frameworks and a Deepen skill in WSMN, but demand evidence at entry level is thin. Test before committing. Gap in both work-readiness frameworks. Relevant to quality control, safety and benefits decisions, but thin evidence of entry-level demand. Test it in the JTA before committing.", "carried": true, "sig": 81.7, "acc": 81.7}, {"id": "M-27", "domain": "Applied math", "name": "Estimate a quantity when exact data are unavailable", "DEM": 2, "CON": 3, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 3, "evd": "B", "wsmn": "Estimation and approximation", "quadrant": "Streamline", "note": "CONFLICT: WSMN places estimation in Streamline (high automation, low augmentation) yet its own mathematics section says to teach estimation as verification rather than as technique. Scored on the verification reading. See README. Gap in WorkKeys. High authenticity and highly compatible with a calculator-permitted design, because estimation cannot be outsourced to the calculator.", "carried": true, "sig": 93.3, "acc": 95.0}, {"id": "M-28", "domain": "Applied math", "name": "Judge whether a result is plausible in magnitude or precision", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 3, "evd": "C", "wsmn": "Estimation and approximation", "quadrant": "Streamline", "note": "TOP CANDIDATE, WEAKEST EVIDENCE. Plausibility judgement of a result the system produced. The single largest gap, but the demand claim is currently an inference. Strand A item block M-TOOL exists to convert this from tier C to tier A. The highest-value gap in the entire crosswalk. Software now performs most workplace calculation, which shifts demand from computing to checking. See JTA blueprint, Strand A item block M-TOOL, which is designed to measure exactly this shift.", "carried": true, "sig": 88.3, "acc": 86.7}, {"id": "M-29", "domain": "Applied math", "name": "Extract quantitative information from a table, chart or diagram in order to calculate", "DEM": 3, "CON": 3, "GAP": 1, "FAK": 3, "AIT": 2, "ASM": 3, "evd": "A", "wsmn": "Data visualization", "quadrant": "Transform", "note": "Covered by WorkKeys but in a separate test. Your sectioning decision, not a content gap. Classification conflict - WorkKeys puts this outside math, PIAAC puts it inside numeracy. Your sectioning decision. See Proficiency scales tab.", "carried": true, "sig": 88.3, "acc": 86.7}, {"id": "M-30", "domain": "Applied math", "name": "Work with mathematical information in dynamic, interactive digital tools", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 1, "evd": "B", "wsmn": "Computational thinking", "quadrant": "Transform", "note": "ASM downgraded: requires technology-enhanced items, which forces a platform decision early. Gap. Requires technology-enhanced items and therefore drives platform decisions. Decide early or you will be locked out of it.", "carried": true, "sig": 78.3, "acc": 70.0}, {"id": "M-31", "domain": "Applied math", "name": "Communicate a quantitative result and its implications", "DEM": 1, "CON": 2, "GAP": 3, "FAK": 3, "AIT": 2, "ASM": 1, "evd": "C", "wsmn": "Written communication", "quadrant": "Transform", "note": "PIAAC Cycle 2 deliberately dropped communicating from the numeracy definition that Cycle 1 included. PIAAC Cycle 1 defined numeracy as including communicating mathematical information; Cycle 2 revised the definition to accessing, using and reasoning critically. The omission is deliberate, not an oversight. Understand why before adding it.", "carried": true, "sig": 66.7, "acc": 58.3}, {"id": "M-32", "domain": "Applied math", "name": "Apply basic algebra (solve for an unknown using variables)", "DEM": 1, "CON": 3, "GAP": 2, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "A", "wsmn": "Algebraic fluency", "quadrant": "Streamline", "note": "STAMP: only about 22% of workers use math beyond fractions, decimals and percentages, most commonly simple algebra. This is the evidence that caps your ceiling. STAMP: only about 22% of workers use math beyond fractions, decimals and percentages, and that most commonly means simple algebra. Calibrate the ceiling to this, not to SAT Math.", "carried": true, "sig": 73.3, "acc": 73.3}, {"id": "M-33", "domain": "Applied math", "name": "Apply calculus or advanced statistical technique", "DEM": 0, "CON": 3, "GAP": 3, "FAK": 3, "AIT": 0, "ASM": 1, "evd": "A", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "note": "Gated out. STAMP: about 5% of workers. Illustrates why the demand gate is necessary - absence from WorkKeys is not by itself a reason to include something. STAMP: about 5% of workers. Exclude.", "carried": true, "sig": 0.0, "acc": 0.0}, {"id": "P-01", "domain": "Adaptive problem solving", "name": "Define a problem when the goal state is not explicitly given", "DEM": 3, "CON": 3, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 3, "evd": "B", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "note": "The core APS process. Which Skills Matter Now singles out problem formulation as the part of quantitative work that stays human when execution is automated.", "carried": false, "sig": 100.0, "acc": 100.0}, {"id": "P-02", "domain": "Adaptive problem solving", "name": "Identify what information is missing and where to obtain it", "DEM": 3, "CON": 3, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 3, "evd": "B", "wsmn": "Research design and planning", "quadrant": "Transform", "note": "", "carried": false, "sig": 100.0, "acc": 100.0}, {"id": "P-03", "domain": "Adaptive problem solving", "name": "Generate more than one candidate approach to a problem", "DEM": 2, "CON": 3, "GAP": 3, "FAK": 3, "AIT": 2, "ASM": 3, "evd": "B", "wsmn": "Creativity and innovation", "quadrant": "Deepen", "note": "", "carried": false, "sig": 88.3, "acc": 88.3}, {"id": "P-04", "domain": "Adaptive problem solving", "name": "Choose among approaches under a constraint of time, cost or safety", "DEM": 3, "CON": 3, "GAP": 3, "FAK": 3, "AIT": 2, "ASM": 3, "evd": "B", "wsmn": "Mathematical problem solving", "quadrant": "Anchor", "note": "Constraint-bounded choice is the most workplace-authentic APS item type and the easiest to contextualise by sector.", "carried": false, "sig": 95.0, "acc": 93.3}, {"id": "P-05", "domain": "Adaptive problem solving", "name": "Monitor progress and detect that an approach is failing", "DEM": 2, "CON": 3, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 2, "evd": "B", "wsmn": "Metacognition and self-regulation", "quadrant": "Anchor", "note": "", "carried": false, "sig": 88.3, "acc": 86.7}, {"id": "P-06", "domain": "Adaptive problem solving", "name": "Change approach when the problem itself changes mid-task", "DEM": 2, "CON": 3, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 2, "evd": "B", "wsmn": "Metacognition and self-regulation", "quadrant": "Anchor", "note": "This is the adaptivity that distinguishes APS from static problem solving, and it is what requires dynamic item delivery rather than a fixed stimulus.", "carried": false, "sig": 88.3, "acc": 86.7}, {"id": "P-07", "domain": "Adaptive problem solving", "name": "Recover from a dead end without restarting from scratch", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 2, "evd": "C", "wsmn": "Troubleshooting", "quadrant": "Anchor", "note": "", "carried": false, "sig": 83.3, "acc": 78.3}, {"id": "P-08", "domain": "Adaptive problem solving", "name": "Diagnose a fault in a physical or procedural system", "DEM": 3, "CON": 2, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 3, "evd": "B", "wsmn": "Troubleshooting", "quadrant": "Anchor", "note": "Troubleshooting is an Anchor skill in Which Skills Matter Now - developed only by doing. Pairs directly with crosswalk rows M-20 and M-21 on error location and diagnosis.", "carried": false, "sig": 95.0, "acc": 91.7}, {"id": "D-01", "domain": "Digital and AI fluency", "name": "Navigate, search and filter within unfamiliar workplace software", "DEM": 3, "CON": 2, "GAP": 3, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "B", "wsmn": "Information literacy", "quadrant": "Streamline", "note": "High frequency, low ceiling. Floor items for this section.", "carried": false, "sig": 85.0, "acc": 78.3}, {"id": "D-02", "domain": "Digital and AI fluency", "name": "Recognise when a system is performing a step on your behalf", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 3, "evd": "C", "wsmn": "Systems thinking", "quadrant": "Transform", "note": "Prerequisite for every verification skill in the math section. If a worker does not know the system computed something, they cannot check it.", "carried": false, "sig": 88.3, "acc": 86.7}, {"id": "D-03", "domain": "Digital and AI fluency", "name": "Write a usable instruction or prompt for an AI tool", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 3, "evd": "C", "wsmn": "Clear and adaptive communication", "quadrant": "Unclassified", "note": "AILit domain: Create with AI. Note the shelf life - prompting conventions may change faster than a test-development cycle, so keep this generic rather than tool-specific.", "carried": false, "sig": 88.3, "acc": 86.7}, {"id": "D-04", "domain": "Digital and AI fluency", "name": "Evaluate whether AI-generated output is accurate and fit for purpose", "DEM": 3, "CON": 2, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 3, "evd": "B", "wsmn": "Evidence evaluation", "quadrant": "Deepen", "note": "AILit domain: Manage AI. The single clearest bridge between the AI-era frameworks and the existing literacy section - it is the same judgement as crosswalk row L-14 applied to a generated source rather than a found one.", "carried": false, "sig": 95.0, "acc": 91.7}, {"id": "D-05", "domain": "Digital and AI fluency", "name": "Identify what a tool has not been given or cannot know", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 2, "evd": "C", "wsmn": "Systems thinking", "quadrant": "Transform", "note": "", "carried": false, "sig": 83.3, "acc": 78.3}, {"id": "D-06", "domain": "Digital and AI fluency", "name": "Decide when a task should not be delegated to an automated tool", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 2, "AIT": 3, "ASM": 2, "evd": "C", "wsmn": "Ethical reasoning", "quadrant": "Anchor", "note": "", "carried": false, "sig": 75.0, "acc": 76.7}, {"id": "D-07", "domain": "Digital and AI fluency", "name": "Handle data and personal information appropriately", "DEM": 3, "CON": 2, "GAP": 3, "FAK": 3, "AIT": 2, "ASM": 3, "evd": "B", "wsmn": "Information literacy", "quadrant": "Streamline", "note": "Sector-general and enforceable - privacy rules are written down, which makes this assessable as knowledge rather than disposition.", "carried": false, "sig": 90.0, "acc": 85.0}, {"id": "D-08", "domain": "Digital and AI fluency", "name": "Recognise bias or potential harm in an automated decision", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 2, "evd": "C", "wsmn": "Ethical reasoning", "quadrant": "Anchor", "note": "AILit domain: Shape AI.", "carried": false, "sig": 83.3, "acc": 78.3}, {"id": "D-09", "domain": "Digital and AI fluency", "name": "Verify an AI output against an authoritative source", "DEM": 3, "CON": 2, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 3, "evd": "B", "wsmn": "Source credibility assessment", "quadrant": "Deepen", "note": "Combines L-14 and M-28. If you build one item type from the AI-era evidence, build this one.", "carried": false, "sig": 95.0, "acc": 91.7}, {"id": "J-01", "domain": "Workplace judgment", "name": "Choose the most effective action in a customer or client conflict", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 1, "AIT": 1, "ASM": 3, "evd": "C", "wsmn": "Intercultural competence", "quadrant": "Deepen", "note": "Use knowledge instructions (which action is most effective) rather than behavioural tendency (what would you do) - the two forms have different properties.", "carried": false, "sig": 61.7, "acc": 70.0}, {"id": "J-02", "domain": "Workplace judgment", "name": "Decide when to escalate rather than handle something yourself", "DEM": 3, "CON": 2, "GAP": 3, "FAK": 1, "AIT": 2, "ASM": 3, "evd": "C", "wsmn": "Systems thinking", "quadrant": "Transform", "note": "The most consistently cited entry-level judgement failure in supervisor accounts.", "carried": false, "sig": 73.3, "acc": 81.7}, {"id": "J-03", "domain": "Workplace judgment", "name": "Respond to an instruction that conflicts with a safety or policy rule", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 2, "AIT": 2, "ASM": 3, "evd": "C", "wsmn": "Ethical reasoning", "quadrant": "Anchor", "note": "", "carried": false, "sig": 75.0, "acc": 78.3}, {"id": "J-04", "domain": "Workplace judgment", "name": "Handle a mistake you have made: disclose, correct, prevent recurrence", "DEM": 3, "CON": 2, "GAP": 3, "FAK": 1, "AIT": 2, "ASM": 3, "evd": "C", "wsmn": "Ethical reasoning", "quadrant": "Anchor", "note": "", "carried": false, "sig": 73.3, "acc": 81.7}, {"id": "J-05", "domain": "Workplace judgment", "name": "Handle confidential or sensitive information", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 2, "AIT": 2, "ASM": 3, "evd": "C", "wsmn": "Ethical reasoning", "quadrant": "Anchor", "note": "", "carried": false, "sig": 75.0, "acc": 78.3}, {"id": "J-06", "domain": "Workplace judgment", "name": "Judge the appropriate communication register for a workplace audience", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 2, "AIT": 2, "ASM": 3, "evd": "C", "wsmn": "Rhetorical reasoning", "quadrant": "Transform", "note": "Overlaps crosswalk row L-23. Consider assessing it inside the literacy section instead of standing up a judgement section for it.", "carried": false, "sig": 75.0, "acc": 78.3}, {"id": "J-07", "domain": "Workplace judgment", "name": "Recognise a conflict of interest or integrity risk", "DEM": 1, "CON": 2, "GAP": 3, "FAK": 1, "AIT": 1, "ASM": 2, "evd": "C", "wsmn": "Ethical reasoning", "quadrant": "Anchor", "note": "", "carried": false, "sig": 50.0, "acc": 56.7}, {"id": "C-01", "domain": "Collaboration", "name": "Establish a shared understanding of a task with a partner", "DEM": 3, "CON": 2, "GAP": 3, "FAK": 2, "AIT": 2, "ASM": 1, "evd": "B", "wsmn": "Collaboration and teamwork", "quadrant": "Transform", "note": "PISA 2015 CPS competency 1. Requires scripted-agent simulation; that is the constraint, not the construct.", "carried": false, "sig": 71.7, "acc": 66.7}, {"id": "C-02", "domain": "Collaboration", "name": "Take appropriate action to solve a problem jointly", "DEM": 3, "CON": 2, "GAP": 3, "FAK": 2, "AIT": 2, "ASM": 1, "evd": "B", "wsmn": "Collaboration and teamwork", "quadrant": "Transform", "note": "PISA 2015 CPS competency 2.", "carried": false, "sig": 71.7, "acc": 66.7}, {"id": "C-03", "domain": "Collaboration", "name": "Establish and maintain team organisation: roles, sequence, handoffs", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 2, "AIT": 2, "ASM": 1, "evd": "B", "wsmn": "Collaboration and teamwork", "quadrant": "Transform", "note": "PISA 2015 CPS competency 3.", "carried": false, "sig": 65.0, "acc": 61.7}, {"id": "C-04", "domain": "Collaboration", "name": "Give and receive corrective feedback", "DEM": 2, "CON": 1, "GAP": 3, "FAK": 1, "AIT": 2, "ASM": 1, "evd": "C", "wsmn": "Active listening and dialogue", "quadrant": "Anchor", "note": "", "carried": false, "sig": 51.7, "acc": 51.7}, {"id": "C-05", "domain": "Collaboration", "name": "Resolve a disagreement about how to proceed", "DEM": 2, "CON": 1, "GAP": 3, "FAK": 1, "AIT": 2, "ASM": 1, "evd": "C", "wsmn": "Active listening and dialogue", "quadrant": "Anchor", "note": "", "carried": false, "sig": 51.7, "acc": 51.7}, {"id": "O-01", "domain": "Oral communication", "name": "Give a clear spoken instruction or shift handoff", "DEM": 3, "CON": 2, "GAP": 3, "FAK": 2, "AIT": 2, "ASM": 1, "evd": "B", "wsmn": "Oral communication", "quadrant": "Deepen", "note": "BLS ORS finds 60.8% of workers require more than basic people skills, but the sector spread is enormous - 95.4% of firefighters against 3.4% of construction labourers.", "carried": false, "sig": 71.7, "acc": 66.7}, {"id": "O-02", "domain": "Oral communication", "name": "Listen and confirm understanding before acting", "DEM": 3, "CON": 2, "GAP": 3, "FAK": 2, "AIT": 2, "ASM": 1, "evd": "B", "wsmn": "Active listening and dialogue", "quadrant": "Anchor", "note": "", "carried": false, "sig": 71.7, "acc": 66.7}, {"id": "O-03", "domain": "Oral communication", "name": "Explain a problem to someone with less context", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 2, "AIT": 3, "ASM": 1, "evd": "C", "wsmn": "Oral communication", "quadrant": "Deepen", "note": "", "carried": false, "sig": 70.0, "acc": 68.3}, {"id": "O-04", "domain": "Oral communication", "name": "Adapt register and vocabulary to the listener", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 2, "AIT": 2, "ASM": 1, "evd": "C", "wsmn": "Clear and adaptive communication", "quadrant": "Unclassified", "note": "Highest bias risk in the set. Automated scoring of spoken response carries documented accent and dialect effects; the fairness study determines whether this can exist, not whether it ships.", "carried": false, "sig": 65.0, "acc": 61.7}, {"id": "O-05", "domain": "Oral communication", "name": "Deliver difficult information: bad news, a refusal, a delay", "DEM": 2, "CON": 1, "GAP": 3, "FAK": 1, "AIT": 2, "ASM": 1, "evd": "C", "wsmn": "Oral communication", "quadrant": "Deepen", "note": "", "carried": false, "sig": 51.7, "acc": 51.7}, {"id": "S-01", "domain": "Self-management", "name": "Plan and sequence work to meet a deadline", "DEM": 3, "CON": 3, "GAP": 3, "FAK": 0, "AIT": 2, "ASM": 2, "evd": "B", "wsmn": "Metacognition and self-regulation", "quadrant": "Anchor", "note": "GATED for signaling. Conscientiousness is the best-established construct in this whole appraisal and at census scale the only delivery is self-report.", "carried": false, "sig": 0.0, "acc": 80.0}, {"id": "S-02", "domain": "Self-management", "name": "Follow through on a commitment without supervision", "DEM": 3, "CON": 3, "GAP": 3, "FAK": 0, "AIT": 2, "ASM": 1, "evd": "B", "wsmn": "Metacognition and self-regulation", "quadrant": "Anchor", "note": "GATED for signaling. The single most requested attribute in supervisor accounts and the least defensibly measurable one.", "carried": false, "sig": 0.0, "acc": 71.7}, {"id": "S-03", "domain": "Self-management", "name": "Manage competing demands and reprioritise", "DEM": 3, "CON": 2, "GAP": 3, "FAK": 0, "AIT": 2, "ASM": 2, "evd": "C", "wsmn": "Metacognition and self-regulation", "quadrant": "Anchor", "note": "GATED for signaling.", "carried": false, "sig": 0.0, "acc": 71.7}, {"id": "S-04", "domain": "Self-management", "name": "Persist through a task after an initial failure", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 0, "AIT": 2, "ASM": 1, "evd": "C", "wsmn": "Metacognition and self-regulation", "quadrant": "Anchor", "note": "GATED for signaling.", "carried": false, "sig": 0.0, "acc": 58.3}, {"id": "S-05", "domain": "Self-management", "name": "Judge accurately what you can and cannot yet do", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 0, "AIT": 3, "ASM": 1, "evd": "C", "wsmn": "Metacognition and self-regulation", "quadrant": "Anchor", "note": "GATED for signaling. Rising sharply in value because calibration is what makes AI delegation safe - and measurable only by comparing self-rating to performance, which needs both.", "carried": false, "sig": 0.0, "acc": 65.0}, {"id": "A-01", "domain": "Adaptability", "name": "Adjust to a changed procedure or tool", "DEM": 3, "CON": 1, "GAP": 3, "FAK": 0, "AIT": 3, "ASM": 1, "evd": "C", "wsmn": "Metacognition and self-regulation", "quadrant": "Anchor", "note": "GATED for signaling. Second in the WEF core skills ranking and there is no agreed construct definition behind it.", "carried": false, "sig": 0.0, "acc": 61.7}, {"id": "A-02", "domain": "Adaptability", "name": "Learn a new tool or process from written documentation", "DEM": 3, "CON": 2, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 3, "evd": "B", "wsmn": "Information literacy", "quadrant": "Streamline", "note": "THE EXCEPTION IN THIS DOMAIN. Reframed as a reading-to-learn task it becomes performance-based and unfakable, and it is already half-covered by crosswalk rows L-08 to L-12. This is how to get at adaptability without building an adaptability section.", "carried": false, "sig": 95.0, "acc": 91.7}, {"id": "A-03", "domain": "Adaptability", "name": "Ask for help appropriately and at the right point", "DEM": 2, "CON": 1, "GAP": 3, "FAK": 0, "AIT": 2, "ASM": 1, "evd": "C", "wsmn": "Metacognition and self-regulation", "quadrant": "Anchor", "note": "GATED for signaling.", "carried": false, "sig": 0.0, "acc": 50.0}, {"id": "A-04", "domain": "Adaptability", "name": "Transfer a learned procedure to an unfamiliar context", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 3, "AIT": 3, "ASM": 2, "evd": "C", "wsmn": "Critical reading", "quadrant": "Anchor", "note": "Also performance-assessable. Close relative of crosswalk row L-12.", "carried": false, "sig": 83.3, "acc": 78.3}, {"id": "K-01", "domain": "Safety and risk", "name": "Identify a hazard from a written procedure or diagram", "DEM": 2, "CON": 2, "GAP": 2, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "B", "wsmn": "Measurement and uncertainty analysis", "quadrant": "Anchor", "note": "Assessable as knowledge, not disposition. Better placed as item context inside the literacy and graphic sections than as a section of its own.", "carried": false, "sig": 75.0, "acc": 70.0}, {"id": "K-02", "domain": "Safety and risk", "name": "Apply a safety rule when production pressure argues against it", "DEM": 2, "CON": 1, "GAP": 3, "FAK": 2, "AIT": 1, "ASM": 2, "evd": "C", "wsmn": "Ethical reasoning", "quadrant": "Anchor", "note": "", "carried": false, "sig": 60.0, "acc": 55.0}, {"id": "K-03", "domain": "Safety and risk", "name": "Interpret a warning label, safety data sheet or tolerance specification", "DEM": 3, "CON": 2, "GAP": 2, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "B", "wsmn": "Measurement and uncertainty analysis", "quadrant": "Anchor", "note": "High authenticity and already within reach of the existing literacy and math item writers.", "carried": false, "sig": 81.7, "acc": 75.0}, {"id": "K-04", "domain": "Safety and risk", "name": "Report a near miss or unsafe condition through the right channel", "DEM": 2, "CON": 1, "GAP": 3, "FAK": 2, "AIT": 1, "ASM": 3, "evd": "C", "wsmn": "Civic literacy and participation", "quadrant": "Unclassified", "note": "", "carried": false, "sig": 65.0, "acc": 63.3}, {"id": "F-01", "domain": "Financial literacy", "name": "Read and check a pay stub, including deductions and hours", "DEM": 2, "CON": 3, "GAP": 3, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "B", "wsmn": "Financial literacy", "quadrant": "Unclassified", "note": "The one financial-literacy sub-skill with a genuine workforce-readiness claim: it is about checking your own employer's arithmetic. Fold it into applied math rather than a new section.", "carried": false, "sig": 83.3, "acc": 81.7}, {"id": "F-02", "domain": "Financial literacy", "name": "Compare the total cost of two financing or payment options", "DEM": 1, "CON": 3, "GAP": 3, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "B", "wsmn": "Financial literacy", "quadrant": "Unclassified", "note": "Substantially the same construct as crosswalk row M-19 on determining better value.", "carried": false, "sig": 76.7, "acc": 76.7}, {"id": "F-03", "domain": "Financial literacy", "name": "Interpret a benefits enrolment or insurance document", "DEM": 2, "CON": 3, "GAP": 3, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "B", "wsmn": "Financial literacy", "quadrant": "Unclassified", "note": "A document-literacy task in financial clothing. Strong candidate stimulus for L-04 and L-11.", "carried": false, "sig": 83.3, "acc": 81.7}, {"id": "F-04", "domain": "Financial literacy", "name": "Recognise a predatory term or a financial scam", "DEM": 1, "CON": 3, "GAP": 3, "FAK": 3, "AIT": 2, "ASM": 3, "evd": "B", "wsmn": "Media literacy", "quadrant": "Unclassified", "note": "Civic value rather than employer value. Be explicit about which case you are making.", "carried": false, "sig": 81.7, "acc": 83.3}, {"id": "N-01", "domain": "Career navigation", "name": "Read a job posting and identify what is actually required", "DEM": 2, "CON": 1, "GAP": 3, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "C", "wsmn": "Information literacy", "quadrant": "Streamline", "note": "Performance-assessable and cheap. PwC's seniorisation finding makes it more useful than it sounds: postings are getting harder to read accurately.", "carried": false, "sig": 73.3, "acc": 65.0}, {"id": "N-02", "domain": "Career navigation", "name": "Describe your own skills in terms an employer would recognise", "DEM": 1, "CON": 1, "GAP": 3, "FAK": 1, "AIT": 2, "ASM": 1, "evd": "C", "wsmn": "Clear and adaptive communication", "quadrant": "Unclassified", "note": "", "carried": false, "sig": 45.0, "acc": 46.7}, {"id": "N-03", "domain": "Career navigation", "name": "Interpret an offer, contract or schedule policy", "DEM": 2, "CON": 2, "GAP": 3, "FAK": 3, "AIT": 1, "ASM": 3, "evd": "C", "wsmn": "Information literacy", "quadrant": "Streamline", "note": "Overlaps crosswalk rows L-06 and L-11 - contracts and policies are already the WorkKeys Level 6-7 text types.", "carried": false, "sig": 78.3, "acc": 73.3}];
+const QCOL={Anchor:"#1B2264",Transform:"#236CE1",Deepen:"#2CB7FC",Streamline:"#A3DCFF",Unclassified:"#D8DCE3"};
+const DOMS=[...new Set(DATA.map(x=>x.domain))];
+const heat=d3.scaleLinear().domain([0,50,100]).range(["#ffffff","#A3DCFF","#1B2264"]).clamp(true);
+const dimHeat=d3.scaleLinear().domain([0,3]).range(["#ffffff","#E6F5FF"]).clamp(true);
+const textOn=v=>v>62?"#fff":"#1E1E1E";
+const DIMS=["DEM","CON","GAP","FAK","AIT","ASM"];
 
-const QCOL = {Anchor:"#1B2264", Transform:"#236CE1", Deepen:"#2CB7FC",
-              Streamline:"#A3DCFF", Unclassified:"#D8DCE3"};
-const heat = d3.scaleLinear().domain([0,50,100])
-  .range(["#ffffff","#A3DCFF","#1B2264"]).clamp(true);
-const dimHeat = d3.scaleLinear().domain([0,3]).range(["#ffffff","#E6F5FF"]).clamp(true);
-const textOn = v => v > 62 ? "#fff" : "#1E1E1E";
+const NOTE={
+ sig:"Employer signaling weights faking resistance at 0.25 and applies the gate. Seven "+
+     "self-management and adaptability skills score zero here — not because they do not matter, "+
+     "but because at census scale they can only be measured by self-report, and applicants score "+
+     "higher with reduced variance under stakes.",
+ acc:"Accountability weights construct maturity and measurability at 0.25 each and drops the "+
+     "faking gate, because the student has no personal stake in the score. The seven gated skills "+
+     "reappear. If the programme claims both uses, it has to explain why the same skill is "+
+     "reportable to a state and not to an employer."};
 
-const state = {dom:"all", evd:"all", min:0, sort:"priority"};
-const tip = document.getElementById("tip");
+const state={mode:"sig",dom:"all",org:"all",evd:"all",min:0,sort:"score",gated:true};
+const tip=document.getElementById("tip");
+const val=x=>state.mode==="sig"?x.sig:x.acc;
+const isGated=x=>state.mode==="sig"&&x.FAK===0&&x.DEM>0;
+
+const sel=document.getElementById("f-dom");
+DOMS.forEach(d=>{const o=document.createElement("option");o.value=d;o.textContent=d;sel.appendChild(o)});
 
 function filtered(){
-  let d = DATA.filter(x =>
-    (state.dom === "all" || x.domain === state.dom) &&
-    (state.evd === "all" || (state.evd === "A" ? x.evd === "A" : x.evd !== "C")) &&
-    x.priority >= state.min);
-  const cmp = {priority:(a,b)=>b.priority-a.priority || a.id.localeCompare(b.id),
-               id:(a,b)=>a.id.localeCompare(b.id),
-               dem:(a,b)=>b.dem-a.dem || b.priority-a.priority}[state.sort];
-  return d.sort(cmp);
+  let d=DATA.filter(x=>
+    (state.dom==="all"||x.domain===state.dom)&&
+    (state.org==="all"||(state.org==="new"?!x.carried:x.carried))&&
+    (state.evd==="all"||(state.evd==="A"?x.evd==="A":x.evd!=="C"))&&
+    (state.gated||!isGated(x))&&
+    val(x)>=state.min);
+  if(state.sort==="domain")
+    return d.sort((a,b)=>DOMS.indexOf(a.domain)-DOMS.indexOf(b.domain)||val(b)-val(a)||a.id.localeCompare(b.id));
+  return d.sort((a,b)=>val(b)-val(a)||a.id.localeCompare(b.id));
 }
 
-function showTip(e, d){
-  tip.innerHTML = `<b>${d.id} · ${d.name}</b>
-    <span class="k">Priority</span> ${d.priority} &nbsp;
-    <span class="k">DEM</span> ${d.dem} <span class="k">GAP</span> ${d.gap}
-    <span class="k">AIT</span> ${d.ait} <span class="k">ASM</span> ${d.asm}<br>
+function showTip(e,d){
+  tip.innerHTML=`<b>${d.id} · ${d.name}</b>
+    <span class="k">${state.mode==="sig"?"Signaling":"Accountability"} score</span> ${val(d)}
+    ${isGated(d)?' &nbsp;<span style="color:#FFC742">GATED — self-report only</span>':""}<br>
+    ${DIMS.map(k=>`<span class="k">${k}</span> ${d[k]}`).join(" ")}<br>
     <span class="k">Evidence tier</span> ${d.evd}${d.evd==="C"?" — inference, not measurement":""}<br>
-    <span class="k">Legacy coverage</span> ${d.frameworks.join(", ") || "none"}<br>
+    <span class="k">Section</span> ${d.domain} &nbsp;
     <span class="k">AI-era</span> ${d.wsmn} (${d.quadrant})
-    ${d.note ? "<br><br>" + d.note : ""}`;
-  tip.style.opacity = 1;
-  const pad = 16, w = 360;
-  tip.style.left = Math.min(e.clientX + pad, window.innerWidth - w - pad) + "px";
-  tip.style.top  = Math.min(e.clientY + pad, window.innerHeight - 200) + "px";
+    ${d.note?"<br><br>"+d.note:""}`;
+  tip.style.opacity=1;
+  tip.style.left=Math.min(e.clientX+16,window.innerWidth-376)+"px";
+  tip.style.top=Math.min(e.clientY+16,window.innerHeight-220)+"px";
 }
-const hideTip = () => tip.style.opacity = 0;
+const hideTip=()=>tip.style.opacity=0;
 
 function renderTable(){
-  const d = filtered();
-  document.getElementById("count").textContent =
-    `${d.length} of ${DATA.length} sub-skills shown`;
-  const tb = document.getElementById("rows");
-  tb.innerHTML = "";
-  for (const x of d){
-    const tr = document.createElement("tr");
-    if (x.priority === 0) tr.className = "gated";
-    const bg = heat(x.priority);
-    tr.innerHTML = `
+  const d=filtered();
+  document.getElementById("count").textContent=`${d.length} of ${DATA.length} sub-skills shown`;
+  document.getElementById("scorehead").textContent=state.mode==="sig"?"Signaling":"Account.";
+  const tb=document.getElementById("rows"); tb.innerHTML="";
+  let lastDom=null;
+  for(const x of d){
+    if(state.sort==="domain"&&x.domain!==lastDom){
+      lastDom=x.domain;
+      const h=document.createElement("tr"); h.className="domhead";
+      h.innerHTML=`<td colspan="11">${x.domain}</td>`; tb.appendChild(h);
+    }
+    const tr=document.createElement("tr");
+    if(isGated(x))tr.className="gated";
+    const v=val(x);
+    tr.innerHTML=`
       <td class="id">${x.id}</td>
-      <td class="nm">${x.name}<span class="qtag">${x.domain} · covered by ${x.frameworks.length}/3 legacy frameworks</span></td>
+      <td class="nm">${x.name}${x.carried?"":'<span class="new">NEW</span>'}
+        <span class="qtag">${x.domain}${isGated(x)?' · <span class="lock">GATED: self-report only</span>':""}</span></td>
       <td class="sub">${x.wsmn}<span class="qtag">${x.quadrant}</span></td>
-      ${["dem","gap","ait","asm"].map(k =>
-        `<td class="cell" style="background:${dimHeat(x[k])}">${x[k]}</td>`).join("")}
-      <td class="cell${x.evd==="C" ? " tierC" : ""}">${x.evd}</td>
-      <td class="pri${x.evd==="C" ? " hatch" : ""}" style="background:${bg};color:${textOn(x.priority)}">
-        <span class="v">${x.priority}</span></td>`;
-    tr.addEventListener("mousemove", e => showTip(e, x));
-    tr.addEventListener("mouseleave", hideTip);
+      ${DIMS.map(k=>`<td class="cell" style="background:${dimHeat(x[k])}">${x[k]}</td>`).join("")}
+      <td class="cell${x.evd==="C"?" tierC":""}">${x.evd}</td>
+      <td class="pri${x.evd==="C"?" hatch":""}" style="background:${heat(v)};color:${textOn(v)}">
+        <span class="v">${v}</span></td>`;
+    tr.addEventListener("mousemove",e=>showTip(e,x));
+    tr.addEventListener("mouseleave",hideTip);
     tb.appendChild(tr);
   }
 }
 
-/* ---------------- network ---------------- */
-const svg = d3.select("#net");
-let sim = null;
-
+const svg=d3.select("#net"); let sim=null;
 function renderNet(){
-  const d = filtered();
-  svg.selectAll("*").remove();
-  if (!d.length) return;
-  const box = svg.node().getBoundingClientRect();
-  const W = box.width, H = box.height;
-
-  const hubNames = [...new Set(d.map(x => x.wsmn))];
-  const hubs = hubNames.map(n => ({id:"hub:"+n, hub:true, name:n,
-    q: d.find(x => x.wsmn === n).quadrant,
-    n: d.filter(x => x.wsmn === n).length}));
-  const leaves = d.map(x => ({...x, hub:false}));
-  const nodes = [...hubs, ...leaves];
-  const links = leaves.map(x => ({source:"hub:"+x.wsmn, target:x.id}));
-
-  const r = d3.scaleSqrt().domain([0,100]).range([4,17]);
-  const g = svg.append("g");
-  svg.call(d3.zoom().scaleExtent([0.4,4]).on("zoom", e => g.attr("transform", e.transform)));
-
-  const link = g.append("g").selectAll("line").data(links).join("line")
-    .attr("class","link").attr("stroke-width",1);
-
-  const node = g.append("g").selectAll("g").data(nodes, x => x.id).join("g")
-    .attr("class","node").attr("tabindex", x => x.hub ? -1 : 0);
-
-  node.filter(x => x.hub).append("circle")
-    .attr("r", x => 7 + x.n * 1.6).attr("fill","#fff")
-    .attr("stroke", x => QCOL[x.q]).attr("stroke-width", 2.5);
-  node.filter(x => x.hub).append("text").attr("class","hub")
-    .attr("text-anchor","middle").attr("dy", x => -(11 + x.n*1.6))
-    .text(x => x.name);
-
-  node.filter(x => !x.hub).append("circle")
-    .attr("r", x => r(x.priority)).attr("fill", x => QCOL[x.quadrant])
-    .attr("stroke", x => x.evd === "C" ? "#B01C84" : "#fff")
-    .attr("stroke-width", x => x.evd === "C" ? 2.5 : 1);
-  node.filter(x => !x.hub && x.priority >= 70).append("text").attr("class","nlabel")
-    .attr("text-anchor","middle").attr("dy", x => r(x.priority) + 10).text(x => x.id);
-
-  node.filter(x => !x.hub)
-    .on("mousemove", (e,x) => showTip(e,x))
-    .on("mouseleave", hideTip)
-    .on("focus", function(e,x){
-      const b = this.getBoundingClientRect();
-      showTip({clientX:b.x, clientY:b.y}, x);
-    })
-    .on("blur", hideTip);
-
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (sim) sim.stop();
-  sim = d3.forceSimulation(nodes)
-    .force("link", d3.forceLink(links).id(x => x.id).distance(56).strength(.72))
-    .force("charge", d3.forceManyBody().strength(x => x.hub ? -420 : -110))
-    .force("center", d3.forceCenter(W/2, H/2))
-    .force("collide", d3.forceCollide().radius(x => x.hub ? 20 + x.n*1.6 : r(x.priority)+5))
-    .on("tick", () => {
-      link.attr("x1",x=>x.source.x).attr("y1",x=>x.source.y)
-          .attr("x2",x=>x.target.x).attr("y2",x=>x.target.y);
-      node.attr("transform", x => `translate(${x.x},${x.y})`);
-    });
-  if (reduce){ sim.stop(); for (let i=0;i<300;i++) sim.tick();
-    link.attr("x1",x=>x.source.x).attr("y1",x=>x.source.y)
-        .attr("x2",x=>x.target.x).attr("y2",x=>x.target.y);
-    node.attr("transform", x => `translate(${x.x},${x.y})`); }
+  const d=filtered().filter(x=>val(x)>0);
+  svg.selectAll("*").remove(); if(!d.length)return;
+  const box=svg.node().getBoundingClientRect(), W=box.width, H=box.height;
+  const names=[...new Set(d.map(x=>x.wsmn))];
+  const hubs=names.map(n=>({id:"hub:"+n,hub:true,name:n,
+    q:d.find(x=>x.wsmn===n).quadrant,n:d.filter(x=>x.wsmn===n).length}));
+  const leaves=d.map(x=>({...x,hub:false}));
+  const nodes=[...hubs,...leaves];
+  const links=leaves.map(x=>({source:"hub:"+x.wsmn,target:x.id}));
+  const r=d3.scaleSqrt().domain([0,100]).range([3.5,15]);
+  const g=svg.append("g");
+  svg.call(d3.zoom().scaleExtent([.35,4]).on("zoom",e=>g.attr("transform",e.transform)));
+  const link=g.append("g").selectAll("line").data(links).join("line").attr("class","link").attr("stroke-width",1);
+  const node=g.append("g").selectAll("g").data(nodes,x=>x.id).join("g")
+    .attr("class","node").attr("tabindex",x=>x.hub?-1:0);
+  node.filter(x=>x.hub).append("circle").attr("r",x=>6+x.n*1.25).attr("fill","#fff")
+    .attr("stroke",x=>QCOL[x.q]).attr("stroke-width",2.5);
+  node.filter(x=>x.hub).append("text").attr("class","hub").attr("text-anchor","middle")
+    .attr("dy",x=>-(10+x.n*1.25)).text(x=>x.name);
+  node.filter(x=>!x.hub).append("circle").attr("r",x=>r(val(x)))
+    .attr("fill",x=>QCOL[x.quadrant])
+    .attr("stroke",x=>x.evd==="C"?"#B01C84":"#fff").attr("stroke-width",x=>x.evd==="C"?2.2:1);
+  node.filter(x=>!x.hub&&val(x)>=85).append("text").attr("class","nlabel")
+    .attr("text-anchor","middle").attr("dy",x=>r(val(x))+10).text(x=>x.id);
+  node.filter(x=>!x.hub).on("mousemove",(e,x)=>showTip(e,x)).on("mouseleave",hideTip)
+    .on("focus",function(e,x){const b=this.getBoundingClientRect();showTip({clientX:b.x,clientY:b.y},x)})
+    .on("blur",hideTip);
+  const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(sim)sim.stop();
+  sim=d3.forceSimulation(nodes)
+    .force("link",d3.forceLink(links).id(x=>x.id).distance(50).strength(.75))
+    .force("charge",d3.forceManyBody().strength(x=>x.hub?-380:-85))
+    .force("center",d3.forceCenter(W/2,H/2))
+    .force("collide",d3.forceCollide().radius(x=>x.hub?17+x.n*1.25:r(val(x))+4))
+    .on("tick",tick);
+  function tick(){
+    link.attr("x1",x=>x.source.x).attr("y1",x=>x.source.y).attr("x2",x=>x.target.x).attr("y2",x=>x.target.y);
+    node.attr("transform",x=>`translate(${x.x},${x.y})`);
+  }
+  if(reduce){sim.stop();for(let i=0;i<300;i++)sim.tick();tick();}
 }
 
-/* ---------------- wiring ---------------- */
-function seg(id, key, after){
-  document.getElementById(id).addEventListener("click", e => {
-    const b = e.target.closest("button"); if (!b) return;
-    state[key] = b.dataset.v;
-    [...e.currentTarget.children].forEach(c =>
-      c.setAttribute("aria-pressed", String(c === b)));
-    after();
+const netOpen=()=>!document.getElementById("v-net").classList.contains("hide");
+const redraw=()=>{renderTable();if(netOpen())renderNet();};
+
+function seg(id,key){
+  document.getElementById(id).addEventListener("click",e=>{
+    const b=e.target.closest("button"); if(!b)return;
+    state[key]=b.dataset.v;
+    [...e.currentTarget.children].forEach(c=>c.setAttribute("aria-pressed",String(c===b)));
+    redraw();
   });
 }
-const redraw = () => { renderTable(); if (!document.getElementById("v-net").classList.contains("hide")) renderNet(); };
-seg("f-dom","dom",redraw); seg("f-evd","evd",redraw); seg("f-sort","sort",redraw);
-document.getElementById("f-min").addEventListener("input", e => {
-  state.min = +e.target.value;
-  document.getElementById("f-min-v").textContent = state.min;
+seg("f-org","org"); seg("f-evd","evd"); seg("f-sort","sort");
+sel.addEventListener("change",e=>{state.dom=e.target.value;redraw()});
+document.getElementById("f-min").addEventListener("input",e=>{
+  state.min=+e.target.value; document.getElementById("f-min-v").textContent=state.min; redraw()});
+document.getElementById("f-gated").addEventListener("change",e=>{state.gated=e.target.checked;redraw()});
+
+function setMode(m){
+  state.mode=m;
+  document.getElementById("m-sig").setAttribute("aria-pressed",String(m==="sig"));
+  document.getElementById("m-acc").setAttribute("aria-pressed",String(m==="acc"));
+  document.getElementById("modenote").textContent=NOTE[m];
   redraw();
-});
-
-function tabTo(which){
-  const heatOn = which === "heat";
-  document.getElementById("t-heat").setAttribute("aria-selected", String(heatOn));
-  document.getElementById("t-net").setAttribute("aria-selected", String(!heatOn));
-  document.getElementById("v-heat").classList.toggle("hide", !heatOn);
-  document.getElementById("v-net").classList.toggle("hide", heatOn);
-  if (!heatOn) renderNet();
 }
-document.getElementById("t-heat").addEventListener("click", () => tabTo("heat"));
-document.getElementById("t-net").addEventListener("click", () => tabTo("net"));
+document.getElementById("m-sig").addEventListener("click",()=>setMode("sig"));
+document.getElementById("m-acc").addEventListener("click",()=>setMode("acc"));
 
-let rt; window.addEventListener("resize", () => { clearTimeout(rt);
-  rt = setTimeout(() => { if (!document.getElementById("v-net").classList.contains("hide")) renderNet(); }, 200); });
+function tabTo(w){
+  const h=w==="heat";
+  document.getElementById("t-heat").setAttribute("aria-selected",String(h));
+  document.getElementById("t-net").setAttribute("aria-selected",String(!h));
+  document.getElementById("v-heat").classList.toggle("hide",!h);
+  document.getElementById("v-net").classList.toggle("hide",h);
+  if(!h)renderNet();
+}
+document.getElementById("t-heat").addEventListener("click",()=>tabTo("heat"));
+document.getElementById("t-net").addEventListener("click",()=>tabTo("net"));
+let rt;window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{if(netOpen())renderNet()},200)});
 
-renderTable();
+setMode("sig");
 </script>
 </body>
 </html>
